@@ -9,8 +9,9 @@
           <div class="col-md-4">
             <div class="img-card-tour-page">
               <%= image_tag "#{t.avatar}", class: "w-100" %>
-              <div class="img-location"><i class="material-icons"
-                style="font-size: 16">location_on</i><%= t.name_start %> - <%= t.name_end %>
+              <div class="img-location">
+                <i class="material-icons">location_on</i>
+                <%= t.name_start %> - <%= t.name_end %>
               </div>
             </div>
           </div>
@@ -18,7 +19,7 @@
             <div class="card-title-tour-page">
               <h5 class="title-tour-page"><%= t.title %></h5>
               <p><%= t(".category") %><%= t.des %></p>
-              <p><%= t(".count") %><%= t.soluong %></p>
+              <p><%= t(".count") %><%= t.recent_quantity %></p>
               <p><%= t(".time_start") %><%= (t.time_start).to_date %></p>
             </div>
           </div>
@@ -28,8 +29,9 @@
                 <%= ((t.time_end).to_date - (t.time_start).to_date).to_i %> <%= t(".dates") %>
               </p>
               <h5 class="card-price-tour-page">
-                <%= number_to_currency(t.price) %></h5>
-              <a href="#" class="btn btn-outline-primary w-100"><%= t(".detail") %></a>
+                <%= number_to_currency(t.price) %>
+              </h5>
+              <%= link_to t(".detail"), tour_details_path(tour_id: t.tour_id), class: "btn btn-outline-primary w-100"%>
             </div>
           </div>
         </div>

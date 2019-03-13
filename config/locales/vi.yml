@@ -5,6 +5,9 @@ vi:
   err_login: "Tài khoản hoặc mật khẩu không đúng."
   permission_denide: "Bạn không có quyền truy cập"
   date: "Số ngày: "
+  time:
+    formats:
+      defaut: "%H:%M %d/%m/%Y"
 
   shared:
     hottour:
@@ -119,4 +122,19 @@ vi:
       count: "Số Chỗ Đã Đặt: "
       time_start: "Khởi Hành: "
       detail: "Chi tiết"
-      dates: "ngày"
+      dates: "Ngày"
+
+    tour_details:
+      hotel: "Khách Sạn"
+      age_limit: "Giới Hạn Tuổi: 5"
+      vehicle: "Phương Tiện: "
+      time_start: "Khởi Hành: "
+      content: "Lịch Trình Tour"
+      updating: "Đang cập nhật ..."
+      your_review: "Viết Nhận Xét Của Bạn"
+      cofirm: "ĐẶT TOUR"
+      quantity: "Số khách: (còn"
+      slot: "chỗ)"
+      review: "Nhận Xét"
+      send: "Gửi"
+      dates: "Ngày"

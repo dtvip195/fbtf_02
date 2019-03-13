@@ -37,23 +37,26 @@ class Travelling < ApplicationRecord
 
   # list_tour
   scope :list_tours, (lambda do
-    select("tours.title as title,
-      tours.recent_quantity as soluong,
-      tours.description as des, travellings.id as id,l1.name as name_start,
+    select("tours.id as tour_id, tours.title as title,
+      tours.recent_quantity as recent_quantity,
+      tours.description as des,l1.name as name_start,
       l2.name as name_end, tours.price as price, tours.time_end as time_end,
       tours.time_start as time_start, tours.avatar as avatar")
   end)
 
+  scope :where_list_tours, ->(name){where("l2.name = ?", name)}
+
   # select_new_tour
   scope :select_new_tour, (lambda do
-    select("tours.title as title,
-      tours.recent_quantity as soluong,
-      tours.description as des, travellings.id as id,l1.name as name_start,
+    select("tours.id as tour_id, tours.title as title,
+      tours.recent_quantity as recent_quantity,
+      tours.description as des,l1.name as name_start,
       l2.name as name_end, tours.price as price, tours.time_end as time_end,
-      tours.time_start, tours.avatar as avatar, tours.created_at as created_at")
+      tours.time_start as time_start,
+      tours.avatar as avatar, tours.created_at")
   end)
 
-  scope :order_created_at, ->{order("created_at desc")}
+  scope :order_created_at, ->{order("tours.created_at desc")}
 
   # join_tables
   scope :join_tour, (lambda do

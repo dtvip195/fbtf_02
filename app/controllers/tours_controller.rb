@@ -1,8 +1,8 @@
 class ToursController < ApplicationController
-  before_action :hot_tour, only: :index
+  before_action :travel_end, only: :index
 
   def index
-    hot_tour
+    travel_end
     if params[:name_end]
       if_tours
     else
@@ -10,9 +10,17 @@ class ToursController < ApplicationController
     end
   end
 
+  def show
+    @tour_details = Tour.select_tour_details
+                        .join_travellings
+                        .join_location_start
+                        .join_location_end
+                        .where_tour_details(params[:tour_id])
+  end
+
   private
 
-  def hot_tour
+  def travel_end
     @travel_end = Travelling.location_end.join_tour
                             .join_location_start
                             .join_location_end
@@ -24,7 +32,7 @@ class ToursController < ApplicationController
                        .join_tour
                        .join_location_start
                        .join_location_end
-                       .where("l2.name = ?", params[:name_end])
+                       .where_list_tours(params[:name_end])
                        .paginate(page: params[:page],
                         per_page: Settings.tours.per_page)
   end

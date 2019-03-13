@@ -9,7 +9,7 @@
     <div class="row">
       <% @new_tour.each do |t| %>
         <div class="col-md-4">
-          <%= link_to "#", class: "card text-left card-tour" do %>
+          <%= link_to tour_details_path(tour_id: t.tour_id), class: "card text-left card-tour" do %>
             <div class="card-img-tour">
               <%= image_tag "bg-search.jpg", class: "w-100" %>
               <div class="img-location">

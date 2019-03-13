@@ -1,0 +1,140 @@
+<div class="pb-4 pt-4">
+  <div class="container">
+    <% @tour_details.each do |d| %>
+      <div class="title-name-tour-detail">
+        <h2><%= d.title %></h2>
+      </div>
+      <div class="row">
+        <div class="col-md-8 order-md-first">
+          <div class="border">
+            <div>
+              <%= image_tag "#{d.avatar}", class: "w-100" %>
+            </div>
+            <div class="general-info">
+              <div>
+                <p class="general-info-item">
+                  <i class="fa fa-map-marker" title="Điểm Đến" ></i>
+                  <%= d.name_end %>
+                </p>
+                <p class="general-info-item">
+                  <i class="fa fa-clock-o" title="Số Ngày"></i>
+                  <%= ((d.time_end).to_date - (d.time_start).to_date).to_i %> <%= t(".dates") %>
+                </p>
+                <p class="general-info-item">
+                  <i class="fa fa-send" title="Phương Tiện" ></i>
+                  <%= t(".vehicle") %>
+                  <i class="fas fa-bus" title="Di Chuyển Bằng Ô Tô"></i>
+                  <i class="fas fa-plane" title="Di Chuyển Bằng Máy Bay"></i>
+                </p>
+                <p class="general-info-item">
+                  <i class="fa fa-exclamation-circle" title="Age Limit" ></i>
+                  <%= t(".age_limit") %>
+                </p>
+                <p class="general-info-item">
+                  <i class="fa fa-hotel"></i>
+                  <%= t(".hotel") %>
+                </p>
+              </div>
+              <p class="m-0"><i class="fa fa-flag-checkered"></i>
+                <%= t(".time_start") %>
+                <%= l d.time_start, format: :defaut %>
+              </p>
+            </div>
+            <div class="container-detail-tour">
+              <h2><%= t(".content") %></h2>
+              <%= t(".updating") %>
+            </div>
+          </div>
+          <div class="border mt-4">
+            <% if logged_in? %>
+              <div class="container-comment border-bottom">
+                <h4><%= t(".your_review") %></h4>
+                <form onSubmit={this.onHandleSubmit}>
+                  <!-- Rating Stars Box -->
+                  <div class="rating-stars text-center">
+                    <ul id="stars">
+                      <li class="star" title="Poor" data-value="1">
+                        <i class="fa fa-star fa-fw"></i>
+                      </li>
+                      <li class="star" title="Fair" data-value="2">
+                        <i class="fa fa-star fa-fw"></i>
+                      </li>
+                      <li class="star" title="Good" data-value="3">
+                        <i class="fa fa-star fa-fw"></i>
+                      </li>
+                      <li class="star" title="Excellent" data-value="4">
+                        <i class="fa fa-star fa-fw"></i>
+                      </li>
+                      <li class="star" title="WOW!!!" data-value="5">
+                        <i class="fa fa-star fa-fw"></i>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="form-group">
+                    <label htmlFor="comment" id="commentLabel"><%= t(".review") %></label>&nbsp;<span style="color: red">*</span>
+                    <textarea class="form-control form-control-fix" rows="3" name="cmt" id="comment"></textarea>
+                    <span class="error-pattern"></span>
+                  </div>
+                  <button id="submitCmt" class="btn btn-secondary"><%= t(".send") %></button>
+                </form>
+              </div>
+            <% end %>
+            <div class="scrollbar" id="displayComments">
+              <div class="media pt-2 pl-4 pr-4">
+                <img src="https://png.icons8.com/ios/40/777777/user-male-circle-filled.png"
+                class="material-icons mr-3 mt-1 rounded-circle" height="48x" width="48px" />
+                <div class="media-body">
+                  <!-- <h5>Tên&nbsp;&nbsp;&nbsp;<small><i>Đăng ngày 9/3/2019</i></small></h5>
+                  <p>Nhận xét</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 order-sm-first order-first">
+          <% if logged_in? %>
+            <div class="container-book-tour sticky-top">
+              <h2 class="price-tour-detail" id="price">
+                <%= d.price%>
+              </h2>
+              <div class="form-group">
+                <label><%= t(".quantity") %>
+                  <%= (d.max_quantity - d.recent_quantity) %>
+                  <%= t(".slot") %>
+                </label>
+                <select class="form-control form-control-fix"
+                onchange="myFunction()" id="mySelect">
+                  <option value="1"></option>
+                  <option value="2"></option>
+                  <option value="3"></option>
+                  <option value="4"></option>
+                  <option value="5"></option>
+                  <option value="6"></option>
+                  <option value="7"></option>
+                  <option value="8"></option>
+                  <option value="9"></option>
+                  <option value="10"></option>
+                </select>
+              </div>
+              <button class="btn btn-primary w-100" onclick="myFunction()">
+                <%= t(".cofirm") %>
+              </button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- <script>
+  function myFunction() {
+    var price = document.getElementById("price").innerHTML;
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("price").innerHTML = x*price;
+  }
+  myFunction();
+  var price = document.getElementById("price").innerHTML;
+  console.log(price);
+</script>
+
+ -->

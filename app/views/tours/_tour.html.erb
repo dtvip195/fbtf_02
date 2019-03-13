@@ -3,41 +3,39 @@
     <h3><%= t(".tours") %></h3>
   </div>
   <div>
-    <% @travelling.each do |t| %>
-      <% t.tours.each do |t1| %>
-        <div class="card-tour-page">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="img-card-tour-page">
-                <%= image_tag "#{t1.avatar}", class: "w-100" %>
-                <div class="img-location"><i class="material-icons"
-                  style="font-size: 16">location_on</i>
-                  <%= t1.travelling.location_start.name %> - <%= t1.travelling.location_end.name %>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="card-title-tour-page">
-                <h5 class="title-tour-page"><%= t1.title %></h5>
-                <p><%= t(".category") %><%= t1.description %></p>
-                <p><%= t(".count") %><%= t1.recent_quantity %></p>
-                <p><%= t(".time_start") %><%= (t1.time_start).to_date %></p>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="p-2">
-                <p class="border-bottom pb-1 pt-1 m-0"><i class="fa fa-clock-o"></i>
-                  <%= count_date(t1.time_end, t1.time_start) %> <%= t(".dates") %>
-                </p>
-                <h5 class="card-price-tour-page">
-                  <%= number_to_currency(t1.price) %>
-                </h5>
-                <%= link_to t(".detail"), tour_path(t1), class: "btn btn-outline-primary w-100"%>
+    <% @tours.each do |t1| %>
+      <div class="card-tour-page">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="img-card-tour-page">
+              <%= image_tag "#{t1.avatar}", class: "w-100" %>
+              <div class="img-location"><i class="material-icons">location_on</i>
+                <%= t1.travelling.location_start.name %> - <%= t1.travelling.location_end.name %>
               </div>
             </div>
           </div>
+          <div class="col-md-5">
+            <div class="card-title-tour-page">
+              <h5 class="title-tour-page"><%= t1.title %></h5>
+              <p><%= t(".category") %><%= t1.description %></p>
+              <p><%= t(".count") %><%= t1.recent_quantity %></p>
+              <p><%= t(".time_start") %><%= (t1.time_start).to_date %></p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-2">
+              <p class="border-bottom pb-1 pt-1 m-0"><i class="fa fa-clock-o"></i>
+                <%= ((t1.time_end).to_date - (t1.time_start).to_date).to_i %> <%= t(".dates") %>
+              </p>
+              <h5 class="card-price-tour-page">
+                <%= number_to_currency(t1.price) %>
+              </h5>
+              <%= link_to t(".detail"), tour_path(t1), class: "btn btn-outline-primary w-100"%>
+            </div>
+          </div>
         </div>
-      <%end %>
-    <% end %>
+      </div>
+    <%end %>
   </div>
+  <%= will_paginate @tours %>
 </div>

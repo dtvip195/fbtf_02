@@ -1,0 +1,32 @@
+<%= form_for @booking do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :name, t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phonenumber, t(".phone_number") %>
+    <%= f.telephone_field :phonenumber, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address, t(".address") %>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :quantity, t(".quantity") %>
+    <%= t(".booking_quantity")%>
+    <%= @tour.max_quantity - @tour.recent_quantity %><%= t(".booking_quantity1")%>
+    <%= f.number_field :quantity,value: 1,min: 1, max: @tour.max_quantity,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :note, t(".note") %>
+    <%= f.text_area :note, class: "form-control", rows: "3" %>
+  </div>
+  <%= hidden_field_tag :tour_id, @tour.id %>
+  <p class="m-0"><%= t(".note1") %></p>
+  <%= f.submit "Xác nhận", class: "btn btn-primary float-right" %>
+<% end %>

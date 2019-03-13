@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  before_action :review_params, only: :create
   before_action :load_tour
   before_action :correct_user, only: :destroy
 
@@ -26,7 +25,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit :content, :picture
+    params.require(:review).permit :content, :picture, :rating
   end
 
   def load_tour

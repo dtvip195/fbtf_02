@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   resources :travellings
   resources :tours
   resources :reviews
+
+  delete "/unlike", to: "likes#destroy"
+  resources :likes
+
+  delete "/delete", to: "bookings#destroy"
+  resources :bookings
 end

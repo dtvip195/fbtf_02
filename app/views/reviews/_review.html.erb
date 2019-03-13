@@ -1,20 +1,44 @@
-<div class="scrollbar">
-  <div class="media pt-2 pl-4 pr-4">
-    <img src="https://png.icons8.com/ios/40/777777/user-male-circle-filled.png"
-    class="material-icons mr-3 mt-1 rounded-circle" height="48x" width="48px" />
-    <div class="media-body">
-      <h5>
-        <%= review.user.name %>&nbsp;&nbsp;&nbsp;<small><i>
-          <%= t(".post") %>
-          <%= time_ago_in_words(review.created_at) %>
-          <%= t(".ago")%></i></small>
-      </h5>
-      <p><%= review.content %></p>
-      <%= image_tag "#{review.picture}", class: "w-100" %>
-      <% if current_user?(review.user) %>
+<div class="media pt-2 pl-4 pr-4">
+  <img src="https://png.icons8.com/ios/40/777777/user-male-circle-filled.png"
+  class="material-icons mr-3 mt-1 rounded-circle" height="48x" width="48px" />
+  <div class="media-body">
+    <h5>
+      <%= review.user.name %>&nbsp;&nbsp;&nbsp;<small><i>
+        <%= t(".post") %>
+        <%= time_ago_in_words(review.created_at) %>
+        <%= t(".ago")%></i></small>
+    </h5>
+    <p><%= review.content %></p>
+    <div class="review-rating" data-score=<%= review.rating %>></div>
+    <br>
+    <% if logged_in? %>
+      <% pre_like = current_user.likes.find { |like| like.review_id == review.id} %>
+      <div class="button button-like", id="follow_form">
+        <% if pre_like %>
+          <%= link_to t(".unlike"), unlike_path( like_id: pre_like,
+            tour_id: @tour_details.id), method: :delete, remote: true %>
+        <% else %>
+          <%= link_to t(".like"), likes_path(review_id: review.id,
+            tour_id: @tour_details.id), method: :post, remote: true %>
+        <% end %>
+      </div>
+    <% end %>
+    <p><%= review.likes.count %> <%= (review.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+    <%= image_tag "#{review.picture}", class: "w-100" %>
+    <% if current_user?(review.user) %>
       <%= link_to "delete", review, method: :delete,
-        data: { confirm: "You sure?" } %>
-      <% end %>
-    </div>
+      data: { confirm: "You sure?" } %>
+    <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('.review-rating').raty({
+      readOnly: true,
+      path: '/assets/',
+      score: function(){
+        return $(this).attr('data-score');
+      },
+
+  });
+</script>

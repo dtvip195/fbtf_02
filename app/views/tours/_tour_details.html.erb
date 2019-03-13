@@ -1,0 +1,41 @@
+<div class="border">
+  <div>
+    <%= image_tag "#{@tour_details.avatar}", class: "w-100" %>
+  </div>
+  <div class="general-info">
+    <div>
+      <p class="general-info-item">
+        <i class="fa fa-map-marker" title="Điểm Đến" ></i>
+        <%= @tour_details.travelling.location_end.name %>
+      </p>
+      <p class="general-info-item">
+        <i class="fa fa-clock-o" title="Số Ngày"></i>
+        <%= ((@tour_details.time_end).to_date - (@tour_details.time_start).to_date).to_i %> <%= t(".dates") %>
+      </p>
+      <p class="general-info-item">
+        <i class="fa fa-send" title="Phương Tiện" ></i>
+        <%= t(".vehicle") %>
+        <i class="fas fa-bus" title="Di Chuyển Bằng Ô Tô"></i>
+        <i class="fas fa-plane" title="Di Chuyển Bằng Máy Bay"></i>
+      </p>
+      <p class="general-info-item">
+        <i class="fa fa-hotel"></i>
+        <%= t(".hotel") %>
+      </p>
+      <p class="general-info-item"><i class="fa fa-flag-checkered"></i>
+        <%= t(".time_start") %>
+        <%= l @tour_details.time_start, format: :defaut %>
+      </p>
+    </div>
+    <div>
+      <p class="m-0"><i class="fa fa-star checked"></i>
+        <%= t(".avg_rating") %><%= @avg_rating %>
+        <div class='review-rating' data-score=<%= @avg_rating %>></div>
+      </p>
+    </div>
+  </div>
+  <div class="container-detail-tour">
+    <h2><%= t(".content") %></h2>
+    <%= t(".updating") %>
+  </div>
+</div>

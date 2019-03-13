@@ -23,10 +23,49 @@ vi:
     review_form:
       format: "image/jpeg,image/gif,image/png"
 
+  like_fail: "Bạn đã like review này"
+  review_success: "Cảm Ơn Đã Đánh Giá"
+  review_fail: "Review phải nhiều hơn 10 chữ"
+  no_data: "Not Found 404"
+  booking_fail: "Bạn đã nhập quá số lượng cho phép."
+  booking_success: "Quý khách đã đặt tour thành công. Chân thành cảm ơn!!!"
+  booking_fail1: "Bạn vui lòng nhập đầy đủ thông tin."
+  fail: "Lỗi không xác định."
+
+  time:
+    formats:
+      defaut: "%H:%M %d/%m/%Y"
+
+  bookings:
+    new:
+      time_start: "Ngày khởi hành: "
+      quantity: "Số người: "
+      price: "Giá tiền: "
+      booking_info: "Thông Tin Cá Nhân"
+      tour: "Thông Tin Tour"
+
+    booking_form:
+      name: "*Họ và tên:"
+      phone_number: "*Số điện thoại:"
+      address: "*Địa chỉ:"
+      quantity: "*Số lượng khách:"
+      note: "Ghi chú:"
+      note1: "*Quý khách vui lòng nhập đầy đủ thông tin."
+      booking_quantity: "(có thể đặt:"
+      booking_quantity1: ")"
+
+  reviews:
+    review:
+      post: "Đã đăng"
+      ago: "trước"
+      unlike: "Unlike"
+      like: "Like"
+
   shared:
     search:
       title: "Trải nghiệm kì nghỉ tuyệt vời"
       title2: "Tìm tour giá tốt nhất"
+
   ngay: "Số ngày: "
   hottour: "Tour nổi bật"
   xemthem: "Xem thêm"
@@ -106,6 +145,9 @@ vi:
     new_tour:
       location_name: "Địa điểm: "
 
+    new_tour:
+      location_name: "Địa điểm: "
+
   #users
   users:
     new:
@@ -119,6 +161,14 @@ vi:
       pswc: "Nhập lại mật khẩu:"
       phone_number: "Số điện thoại:"
       login: "Đã có tài khoản? Đăng nhập"
+
+    show:
+      history_booking: "Lịch sử giao dịch"
+      name_tour: "Tên tour"
+      time_start: "Ngày khởi hành"
+      time_booking: "Ngày đặt"
+      quantity: "Số lượng khách"
+      bill: "Tổng tiền"
 
   #sessions
   sessions:
@@ -161,20 +211,23 @@ vi:
 
   tours:
     show:
-      hotel: "Khách Sạn"
-      age_limit: "Giới Hạn Tuổi: 5"
-      vehicle: "Phương Tiện: "
-      time_start: "Khởi Hành: "
-      content: "Lịch Trình Tour"
-      updating: "Đang cập nhật ..."
-      your_review: "Viết Nhận Xét Của Bạn"
       cofirm: "ĐẶT TOUR"
       quantity: "Số khách: (còn"
       slot: "chỗ)"
       review: "Nhận Xét"
       send: "Gửi"
-      dates: "Ngày"
       tour_details: "Thông Tin Tour"
+      count: "%{count} nhận xét"
+
+    tour_details:
+      dates: "Ngày"
+      age_limit: "Giới Hạn Tuổi: 5"
+      hotel: "Khách Sạn"
+      vehicle: "Phương Tiện: "
+      time_start: "Khởi Hành: "
+      content: "Lịch Trình Tour"
+      updating: "Đang cập nhật ..."
+      avg_rating: "Đánh Giá Trung Bình: "
 
     tour:
       tours: "Tours"

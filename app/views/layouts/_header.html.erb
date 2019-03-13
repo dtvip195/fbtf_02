@@ -1,5 +1,5 @@
-<nav class="bg-dark navbar-custom">
-  <div class="navbar navbar-expand-md bg-dark navbar-dark">
+<nav class="bg-blue-tiki navbar-custom">
+  <div class="navbar navbar-expand-md bg-blue-tiki navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="#">
     <%= link_to image_tag("logo.png", class: "img", alt: "S Travel"), "/" %>
@@ -21,22 +21,18 @@
     </div>
     <div class="nav-user">
       <% if logged_in? %>
-        <li class="dropdown">
-          <%= link_to @user.name, "#", class: "text-secondary" %> <b class="caret"></b>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <%= link_to t(".profile"), current_user, class: "text-secondary" %>
-            </li>
-            <li>
-            <%= link_to t(".inf_tours"), edit_user_path(current_user), class: "text-secondary" %>
-            </li>
-            <li>
+        <div class="nav-user">
+          <div class="dropdown">
+            <button type="button" class="btn btn-outline-light btn-user">
+              <%= link_to image_tag("architecture-buildings-business.jpg", class: "rounded-circle", size: "28"), root_path %>
+              <%= @user.name %>
+            </button>
+            <div class="dropdown-content">
+              <%= link_to t(".inf_tours"), user_path(current_user) %>
               <%= link_to t(".logout"), logout_path, method: :delete %>
-            </li>
-          </ul>
-        </li>
+            </div>
+          </div>
+        </div>
       <% else %>
         <%= link_to t(".login"), login_path, class: "text-white" %>
         <%= link_to image_tag("contacts.png", size: "28", alt: "S Travel"), login_path %>

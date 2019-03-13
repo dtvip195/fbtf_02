@@ -1,5 +1,8 @@
 <%= form_for @review do |f| %>
-  <!-- Rating Stars Box -->
+  <div class="form-group row">
+    <%= f.label :rating, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-6" id='review-rating-form'></div>
+  </div>
   <div class="form-group">
     <label><%= t(".review") %></label>&nbsp;
     <span style="color: red">*</span>
@@ -11,3 +14,10 @@
     <%= f.file_field :picture, accept: t(".format") %>
   </span>
 <% end %>
+
+<script type="text/javascript">
+    $('#review-rating-form').raty({
+      path: '/assets',
+      scoreName: 'review[rating]',
+  });
+</script>

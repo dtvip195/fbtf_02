@@ -7,5 +7,10 @@ class TravellingsController < ApplicationController
                   else
                     Travelling.all
                   end
+
+    @tours = Tour.search(@travelling.pluck(:id))
+                 .where_time_start(Date.current)
+                 .paginate(page: params[:page],
+                   per_page: Settings.tours.per_page)
   end
 end

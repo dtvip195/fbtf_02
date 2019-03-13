@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @booking = Booking.where(user_id: current_user.id)
+  end
+
   def create
     @user = User.new user_params
     if @user.save

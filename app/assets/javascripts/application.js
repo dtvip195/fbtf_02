@@ -14,6 +14,7 @@
 //= require i18n.js
 //= require i18n/translations
 //= require jquery3
+//= require jquery.raty
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs

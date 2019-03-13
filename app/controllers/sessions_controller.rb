@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   before_action :load_user, only: :create
 
-  def new; end
+  def new
+    return redirect_to root_path if logged_in?
+  end
 
   def create
     if @user&.authenticate params[:session][:password]

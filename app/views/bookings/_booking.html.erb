@@ -1,0 +1,23 @@
+<tbody>
+  <tr>
+    <th>
+      <%= booking.tour.travelling.location_start.name%> -
+      <%= booking.tour.travelling.location_end.name%>
+    </th>
+    <th>
+      <%= l booking.tour.time_start, format: :defaut %>
+    </th>
+    <th>
+      <%= l booking.created_at, format: :defaut %></th>
+    <th>
+      <%= booking.quantity %>
+    </th>
+    <th>
+      <%= number_to_currency(booking.bill) %>
+    </th>
+    <th>
+      <%= link_to "delete", delete_path(booking_id: booking.id, tour_id: booking.tour.id),
+        method: :delete, class: "list-group-item list-group-item-action list-location" %>
+    </th>
+  </tr>
+</tbody>

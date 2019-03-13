@@ -22,3 +22,4 @@ review:
   length_review: 10
   picture_size: "than 5MB"
   picture: 5
+  per_page: 5

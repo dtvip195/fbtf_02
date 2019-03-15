@@ -1,0 +1,2 @@
+module TravellingsHelper
+end

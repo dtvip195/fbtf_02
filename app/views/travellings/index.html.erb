@@ -1,0 +1,64 @@
+<% provide :title, "tours" %>
+<div>
+  <MiniSearch />
+  <div class="pt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 order-md-first order-first">
+          <div class="card card-tour mb-4">
+            <div class="card-header title-search-tours">
+              <h5><%= t(".locations") %></h5>
+            </div>
+            <div class="list-group list-group-flush">
+              <% @travellings.each do |t| %>
+              <%= link_to t.locations_end.name, index_path(location_end_id: t.location_end_id), class: "list-group-item list-group-item-action list-location" %>
+              <% end %>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-9 order-sm-first">
+          <div class="title-search-tours">
+            <h3><%= t(".tours") %></h3>
+          </div>
+          <div>
+            <%@tours.each do |t1| %>
+            <%t1.tours.each do |t2| %>
+            <div class="card-tour-page">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="img-card-tour-page">
+                    <%= image_tag "#{t2.avatar}", class: "w-100" %>
+                    <div class="img-location"><i class="material-icons"
+                      style="font-size: 16">location_on</i>
+
+                        <%= t2.travelling.locations_start.name %> - <%= t2.travelling.locations_end.name %>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="card-title-tour-page">
+                    <h5 class="title-tour-page"><%= t2.title %></h5>
+                    <p><%= t(".time_start") %><%= (t2.time_start).to_date %></p>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="p-2">
+                    <p class="border-bottom pb-1 pt-1 m-0"><i class="fa fa-clock-o"></i>
+                      <%= ((t2.time_end).to_date - (t2.time_start).to_date).to_i %> <%= t(".dates") %>
+                    </p>
+                    <h5 class="card-price-tour-page">
+                      <%= number_to_currency(t2.price) %></h5>
+                      <a href="#" class="btn btn-outline-primary w-100"><%= t(".detail") %></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <%end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

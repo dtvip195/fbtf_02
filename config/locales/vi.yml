@@ -62,22 +62,6 @@ vi:
       booking_quantity: "(có thể đặt:"
       booking_quantity1: ")"
 
-  bookings:
-    show:
-      time_start: "Ngày khởi hành: "
-      quantity: "Số người: "
-      price: "Giá tiền: "
-      booking_info: "Thông Tin Cá Nhân"
-      tour: "Thông Tin Tour"
-
-    booking:
-      name: "*Họ và tên:"
-      phone_number: "*Số điện thoại:"
-      address: "*Địa chỉ:"
-      quantity: "*Số lượng khách:"
-      note: "Ghi chú:"
-      note1: "*Quý khách vui lòng nhập đầy đủ thông tin."
-
   reviews:
     review:
       post: "Đã đăng"

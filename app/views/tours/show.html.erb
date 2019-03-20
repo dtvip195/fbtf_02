@@ -45,10 +45,12 @@
                 <% end %>
               </div>
               <br>
-              <% if @tour_details.time_start.to_date >= Date.current %>
-                <%= link_to t(".cofirm"), new_booking_path(tour_id: @tour_details.id),
-                  class: "btn btn-outline-light w-100" %>
-              <%end %>
+              <% if (@tour_details.max_quantity - @tour_details.recent_quantity) > 0 %>
+                <% if @tour_details.time_start.to_date >= Date.current %>
+                  <%= link_to t(".cofirm"), new_booking_path(tour_id: @tour_details.id),
+                    class: "btn btn-outline-light w-100" %>
+                <% end %>
+              <% end %>
             </div>
           </div>
         <% end %>

@@ -1,5 +1,5 @@
-<nav class="bg-blue-tiki navbar-custom">
-  <div class="navbar navbar-expand-md bg-blue-tiki navbar-dark">
+<nav class="bg-dark navbar-custom">
+  <div class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="#">
     <%= link_to image_tag("logo.png", class: "img", alt: "S Travel"), "/" %>
@@ -30,6 +30,9 @@
             <div class="dropdown-content">
               <%= link_to t(".inf_tours"), user_path(current_user) %>
               <%= link_to t(".logout"), logout_path, method: :delete %>
+              <% if is_admin? %>
+              <%= link_to t(".admin"), admin_root_path %>
+              <% end %>
             </div>
           </div>
         </div>

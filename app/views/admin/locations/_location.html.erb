@@ -2,9 +2,9 @@
   <td><%= location.id %></td>
   <td><%= location.name %></td>
   <td>
-    <%= link_to t(".edit"), edit_admin_location_path(location) %>
+    <%= link_to t(".edit"), edit_admin_location_path(location), class: "btn btn-warning" %>
   </td>
   <td>
-    <%= link_to t(".del"), admin_location_path(location), method: :delete %>
+    <%= link_to t(".del"), admin_location_path(location), method: :delete, class: "btn btn-danger" %>
   </td>
 </tr>

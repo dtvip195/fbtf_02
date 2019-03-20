@@ -1,0 +1,17 @@
+<tr>
+  <td><%= booking.user.id %></td>
+  <td><%= booking.tour.id%></td>
+  <td><%= booking.quantity %></td>
+  <td><%= booking.status %></td>
+  <td><%= number_to_currency(booking.bill) %></td>
+  <td><%= booking.name %></td>
+  <td><%= booking.phonenumber %></td>
+  <td><%= booking.address %></td>
+  <td><%= booking.note %></td>
+  <td>
+    <%= link_to t(".refuse"), admin_booking_path(booking,status: "refuse"), method: :put, class: "btn btn-danger" %>
+  </td>
+  <td>
+    <%= link_to t(".approve"), admin_booking_path(booking,status: "approve"), method: :put, class: "btn btn-success" %>
+  </td>
+</tr>

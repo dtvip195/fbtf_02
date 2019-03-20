@@ -1,0 +1,28 @@
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" style="font-size:15px; text-align: center">
+          <p class="btn btn-info"><%= "Tổng doanh thu: #{number_to_currency(@salary)}" %></p>
+          <thead>
+            <tr>
+              <th><%= t(".user_id") %></th>
+              <th><%= t(".tour_id") %></th>
+              <th><%= t(".quantity") %></th>
+              <th><%= t(".status") %></th>
+              <th><%= t(".bill") %></th>
+              <th><%= t(".name") %></th>
+              <th><%= t(".phone") %></th>
+              <th><%= t(".address") %></th>
+              <th><%= t(".note") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @bookings %>
+          </tbody>
+        </table>
+        <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+</div>

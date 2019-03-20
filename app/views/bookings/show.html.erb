@@ -1,0 +1,31 @@
+<div class="container-tour">
+  <div class="container pt-4 pb-4">
+    <h3><%= t(".tour") %></h3>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card">
+          <%= image_tag "#{@tour.avatar}", class: "card-img-top" %>
+          <div class="card-body">
+            <p class="general-info-item">
+              <i class="fa fa-map-marker" title="Điểm Đến" ></i>
+              <%= @tour.travelling.location_start.name %> - <%= @tour.travelling.location_end.name %>
+            </p>
+            <p class="m-0"><i class="fa fa-flag-checkered"></i>
+              <%= t(".time_start") %><%= l @tour.time_start, format: :defaut %>
+            </p>
+            <p class="m-0"><%= t(".quantity") %><%= @quantity %></p>
+            <p class="m-0"><%= t(".price") %><%= @tour.price %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="card">
+          <div class="card-body">
+            <h4><%= t(".booking_info") %></h4>
+            <%= render "booking" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

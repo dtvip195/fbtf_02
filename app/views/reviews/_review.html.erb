@@ -25,7 +25,7 @@
     <% end %>
     <p><%= review.likes.count %> <%= (review.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     <%= image_tag "#{review.picture}", class: "w-100" %>
-    <% if current_user?(review.user) %>
+    <% if current_user?(review.user) || is_admin?%>
       <%= link_to "delete", review, method: :delete,
       data: { confirm: "You sure?" } %>
     <% end %>

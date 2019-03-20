@@ -3,9 +3,9 @@
   <td><%= travelling.location_start.name %></td>
   <td><%= travelling.location_end.name %></td>
   <td>
-    <%= link_to t(".edit"), edit_admin_travelling_path(travelling) %>
+    <%= link_to t(".edit"), edit_admin_travelling_path(travelling), class: "btn btn-warning" %>
   </td>
   <td>
-    <%= link_to t(".del"), admin_travelling_path(travelling), method: :delete %>
+    <%= link_to t(".del"), admin_travelling_path(travelling), method: :delete, class: "btn btn-danger" %>
   </td>
 </tr>

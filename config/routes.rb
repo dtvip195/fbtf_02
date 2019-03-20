@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :users
     resources :locations
     resources :travellings
+    resources :tours
+    resources :bookings, only: %i(update index)
+    resources :user, only: %i(index destroy show)
   end
   resources :users
   resources :travellings
@@ -25,5 +28,7 @@ Rails.application.routes.draw do
   resources :likes
 
   delete "/delete", to: "bookings#destroy"
+  delete "/unlike", to: "likes#destroy"
+  resources :likes
   resources :bookings
 end

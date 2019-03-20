@@ -1,0 +1,24 @@
+<tr>
+  <td><%= tour.id %></td>
+  <td><%= tour.category.name%></td>
+  <td><%= number_to_currency(tour.price.round) %></td>
+  <td>
+    <%= tour.travelling.location_start.name%>
+    -
+    <%= tour.travelling.location_end.name%>
+  </td>
+  <td>
+    <%= tour.time_start.strftime("%e/%-m/%y") %>
+    <%= tour.time_end.strftime("%e/%-m/%y") %>
+
+  </td>
+  <td><%= tour.max_quantity %></td>
+  <td><%= tour.recent_quantity %></td>
+  <td><%= tour.average_rating %></td>
+  <td>
+    <%= link_to t(".edit"), edit_admin_tour_path(tour), class: "btn btn-warning" %>
+  </td>
+  <td>
+    <%= link_to t(".del"), admin_tour_path(tour), method: :delete, class: "btn btn-danger" %>
+  </td>
+</tr>

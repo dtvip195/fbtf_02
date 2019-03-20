@@ -21,6 +21,8 @@ class User < ApplicationRecord
   validates :password, presence: true,
   length: {minimum: Settings.user.min_pass}, allow_nil: true
 
+  scope :all_except, ->(user) { where.not(id: user) }
+
   class << self
     def digest string
       if cost = ActiveModel::SecurePassword.min_cost

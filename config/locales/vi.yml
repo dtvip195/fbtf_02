@@ -10,6 +10,14 @@ vi:
   review_delete_success: "Xóa review thành công"
   review_delete_fail: "Xóa review thất bại"
   no_data: "Not Found 404"
+  like_fail: "Bạn đã like review này"
+  review_success: "Cảm Ơn Đã Đánh Giá"
+  review_fail: "Review phải nhiều hơn 10 chữ"
+  no_data: "Not Found 404"
+  booking_fail: "Bạn đã nhập quá số lượng cho phép"
+  booking_success: "Quý khách đã đặt tour thành công. Chân thành cảm ơn!!!"
+  booking_fail1: "Bạn không thể đặt tour này"
+  fail: "Lỗi không xác định."
 
   time:
     formats:
@@ -54,6 +62,22 @@ vi:
       booking_quantity: "(có thể đặt:"
       booking_quantity1: ")"
 
+  bookings:
+    show:
+      time_start: "Ngày khởi hành: "
+      quantity: "Số người: "
+      price: "Giá tiền: "
+      booking_info: "Thông Tin Cá Nhân"
+      tour: "Thông Tin Tour"
+
+    booking:
+      name: "*Họ và tên:"
+      phone_number: "*Số điện thoại:"
+      address: "*Địa chỉ:"
+      quantity: "*Số lượng khách:"
+      note: "Ghi chú:"
+      note1: "*Quý khách vui lòng nhập đầy đủ thông tin."
+
   reviews:
     review:
       post: "Đã đăng"
@@ -94,12 +118,27 @@ vi:
   xemthem: "Xem thêm"
   vnd: " VND"
   err_location: "Nhập Sai"
-  add_location_sucess: "Thành Công"
-  update_location_sucess: "Thay đổi thành công"
+  add_location_success: "Thành Công"
+  update_location_success: "Thay đổi thành công"
   update_location_failed: "Thay đổi không thành công"
-  del_location_sucess: "Xóa địa điểm thành công"
+  del_location_success: "Xóa địa điểm thành công"
   del_location_failed: "Xóa địa điểm thất bại"
-
+  update_travelling_success: "Thay đổi thành công"
+  update_travelling_failed: "Thay đổi không thành công"
+  del_travelling_success: "Xóa travel thành công"
+  del_travelling_failed: "Xóa travel thất bại"
+  add_travelling_success: "Thành Công"
+  add_travelling_failed: "Nhập Sai"
+  err_tour: "Khong tim thay tour"
+  add_tour_success: "Thêm tour thành công"
+  add_tour_failed: "Thêm tour thất bại"
+  update_tour_success: "Thay đổi thành công"
+  update_tour_failed: "Thay đổi không thành công"
+  del_tour_success: "Xóa tour thành công"
+  del_tour_failed: "Xóa tour thất bại"
+  del_user_success: "Xóa user thành công"
+  del_user_failed: "Xóa user thất bại"
+  err_user: "Not found"
   #layouts
   layouts:
     header:
@@ -146,6 +185,11 @@ vi:
       location_name: "Địa điểm: "
 
     new_tour:
+      location_name: "Địa điểm: "
+
+    new_tour:
+      new_tour: "Tour mới"
+      view_all: "Xem Tất Cả"
       location_name: "Địa điểm: "
 
   #users
@@ -211,6 +255,13 @@ vi:
 
   tours:
     show:
+      hotel: "Khách Sạn"
+      age_limit: "Giới Hạn Tuổi: 5"
+      vehicle: "Phương Tiện: "
+      time_start: "Khởi Hành: "
+      content: "Lịch Trình Tour"
+      updating: "Đang cập nhật ..."
+      your_review: "Viết Nhận Xét Của Bạn"
       cofirm: "ĐẶT TOUR"
       quantity: "Số khách: (còn"
       slot: "chỗ)"
@@ -228,6 +279,9 @@ vi:
       content: "Lịch Trình Tour"
       updating: "Đang cập nhật ..."
       avg_rating: "Đánh Giá Trung Bình: "
+      dates: "Ngày"
+      tour_details: "Thông Tin Tour"
+
 
     tour:
       tours: "Tours"
@@ -242,7 +296,7 @@ vi:
   admin:
     admin_base:
       header:
-        admin: "Admin"
+        home: "Home"
         profile: "Thông tin"
         logout: "Đăng xuất"
         search: "Search for..."
@@ -255,6 +309,7 @@ vi:
         user: "Người dùng"
         tour: "Tour"
         location: "Địa điểm"
+        booking: "Booking"
       footer:
         copyright: "Copyright"
         website: "Framgia website"
@@ -279,15 +334,60 @@ vi:
         start: "Start"
         end: "End"
         click: "Click here to create new travelling"
+
       edit:
         submit: "Submit"
         start: "Start"
         end: "End"
+
       new:
         submit: "Submit"
+
       travelling:
         edit: "Edit"
         del: "Delete"
+
+    tours:
+      tour:
+        edit: "Edit"
+        del: "Del"
+      index:
+        id: "Id"
+        category: "Category"
+        price: "Price"
+        travelling: "Travelling"
+        time: "Time"
+        max: "Max"
+        recent: "Recent"
+        rating: "Rating"
+        click: "Click here to create new tour"
+      new:
+        submit: "Submit"
+      edit:
+        submit: "Submit"
+        category: "Category"
+        domestic: "Domestic"
+        foreign: "Foreign"
+        travelling: "Travelling"
+        price: "Price"
+        time_start: "Time start"
+        time_end: "Time end"
+        max_quantity: "Max quantity"
+    bookings:
+      booking:
+        refuse: Refuse
+        approve: Approve
+      index:
+        note: "Note"
+    users:
+      user:
+        del: Delete
+        detail: Detail
+      index:
+        id: Id
+        email: Email
+        phonenumber: Phonenumber
+
     static_pages:
       show:
         welcome: "Xin chào"

@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+   <%= form_for [:admin, @tour], html: {class: "form-sample"} do |f| %>
+    <div class="form-group">
+      <%= "category" %>
+      <div class="form-radio">
+        <%= f.radio_button :category_id, 1, checked: true %>
+        <%= label :category_id, "domestic" %>
+      </div>
+      <div class="form-radio">
+        <%= f.radio_button :category_id, 2 %>
+        <%= label :category_id, "foreign" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :travelling, "travelling"%>
+      <%= f.select :travelling_id, @travellings, {},{ class: "form-control"} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :price, "price"%>
+      <%= f.text_field :price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <%= f.label :time_start, "time_start" %>
+          <%= f.datetime_field :time_start, class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= f.label :time_end, "time_end" %>
+          <%= f.datetime_field :time_end, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :max_quantity, "max_quantity"%>
+      <%= f.text_field :max_quantity, class: "form-control" %>
+    </div>
+    <%= f.submit t(".submit"), class: "btn btn-success mr-2" %>
+  <% end %>
+  </div>
+</div>

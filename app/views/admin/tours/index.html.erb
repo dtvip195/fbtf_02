@@ -1,0 +1,32 @@
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <div>
+        <%= link_to t(".click"), new_admin_tour_path, class: "btn btn-primary btn-lg" %>
+      </div>
+      <br>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="font-size:15px; text-align: center">
+          <thead>
+            <tr>
+              <th><%= t(".id") %></th>
+              <th><%= t(".category") %></th>
+              <th><%= t(".price") %></th>
+              <th><%= t(".travelling") %></th>
+              <th><%= t(".time") %></th>
+              <th><%= t(".max") %></th>
+              <th><%= t(".recent") %></th>
+              <th><%= t(".rating") %></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @tours %>
+          </tbody>
+        </table>
+        <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+</div>

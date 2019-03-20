@@ -12,7 +12,7 @@ class Admin::LocationsController < Admin::AdminBaseController
       redirect_to admin_locations_path
     else
       flash[:danger] = t "update_location_failed"
-      render :edit
+      redirect_to request.referrer
     end
   end
 
@@ -22,7 +22,7 @@ class Admin::LocationsController < Admin::AdminBaseController
     else
       flash[:danger] = t "del_location_failed"
     end
-    redirect_to admin_locations_path
+    redirect_to request.referrer
   end
 
   def create

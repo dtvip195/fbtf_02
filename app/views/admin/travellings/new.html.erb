@@ -1,14 +1,16 @@
-<div class="card-body">
-  <%= form_for [:admin, @travelling], html: {class: "form-sample"} do |f| %>
-    <div class="form-group">
-      <%= f.label :name, t(".start")%>
-      <%= f.select :location_start_id, @locations, {selected: @locations.first}, { class: "form-control"} %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name, t(".end")%>
-      <%= f.select :location_end_id, @locations, {selected: @locations.second},
-        {class: "form-control"} %>
-    </div>
-    <%= f.submit t(".submit"), class: "btn btn-success mr-2" %>
-  <% end %>
+<div class="card">
+  <div class="card-body">
+    <%= form_for [:admin, @travelling], html: {class: "form-sample"} do |f| %>
+      <div class="form-group">
+        <%= f.label :name, t(".start")%>
+        <%= f.select :location_start_id, @locations, {selected: @locations.first}, { class: "form-control"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, t(".end")%>
+        <%= f.select :location_end_id, @locations, {selected: @locations.second},
+          {class: "form-control"} %>
+      </div>
+      <%= f.submit t(".submit"), class: "btn btn-success mr-2" %>
+    <% end %>
+  </div>
 </div>

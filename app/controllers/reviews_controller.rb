@@ -36,7 +36,11 @@ class ReviewsController < ApplicationController
   end
 
   def correct_user
-    @review = current_user.reviews.find_by(id: params[:id])
+    if is_admin?
+      @review = Review.find_by(id: params[:id])
+    else
+      @review = current_user.reviews.find_by(id: params[:id])
+    end
     return if @review
     flash[:danger] = t "no_data"
     redirect_to root_path

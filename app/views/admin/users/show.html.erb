@@ -1,0 +1,33 @@
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" style=" text-align: center">
+          <thead>
+            <tr>
+              <th><%= t(".tour_id") %></th>
+              <th><%= t(".quantity") %></th>
+              <th><%= t(".status") %></th>
+              <th><%= t(".bill") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @bookings.each do |t| %>
+              <tr>
+                <% @sum += t.bill %>
+                <td><%= t.tour.id%></td>
+                <td><%= t.quantity %></td>
+                <td><%= t.status %></td>
+                <td><%= number_to_currency(t.bill) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <div>
+        <p class="btn btn-info"><%= "Tổng hóa đơn: #{number_to_currency(@sum)}" %></p>
+      </div>
+        <%= will_paginate @bookings %>
+      </div>
+    </div>
+  </div>
+</div>

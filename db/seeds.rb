@@ -93,7 +93,7 @@ Travelling.create!(location_start_id: 2,
 
 
 # create tour
-20.times do |n|
+16.times do |n|
   price = Faker::Number.number(6)
   time_start = Faker::Time.between(DateTime.now + 2, DateTime.now + 7)
   time_end = Faker::Time.between(DateTime.now + 10, DateTime.now + 15)
@@ -107,7 +107,8 @@ Tour.create!(category_id: 1,
              title: "Du Lịch Trong Nuoc",
              description: "Du Lịch Bụi",
              avatar: "avatar-5.jpg",
-             recent_quantity: recent_quantity,
+             recent_quantity: "9",
+             average_rating: "4.3",
              max_quantity: max_quantity)
 end
 2.times do |n|
@@ -124,6 +125,7 @@ Tour.create!(category_id: 2,
              description: "Du Lịch Nghỉ Dưỡng",
              avatar: "avatar-7.jpg",
              recent_quantity: "10",
+             average_rating: "4.7",
              max_quantity: max_quantity)
 end
 
@@ -141,6 +143,7 @@ Tour.create!(category_id: 1,
              description: "Du Lịch Bụi",
              avatar: "architecture-buildings-business.jpg",
              recent_quantity: "11",
+             average_rating: "5",
              max_quantity: max_quantity)
 end
 
@@ -158,6 +161,7 @@ Tour.create!(category_id: 1,
              description: "Du Lịch Nghỉ Dưỡng",
              avatar: "avatar-5.jpg",
              recent_quantity: "12",
+             average_rating: "4.0",
              max_quantity: max_quantity)
 end
 
@@ -175,6 +179,7 @@ Tour.create!(category_id: 1,
              description: "Du Lịch Bụi",
              avatar: "avatar-7.jpg",
              recent_quantity: "13",
+             average_rating: "3.7",
              max_quantity: max_quantity)
 end
 
@@ -192,6 +197,7 @@ Tour.create!(category_id: 1,
              description: "Du Lịch Nghỉ Dưỡng",
              avatar: "architecture-buildings-business.jpg",
              recent_quantity: "14",
+             average_rating: "4.5",
              max_quantity: max_quantity)
 end
 
@@ -209,6 +215,7 @@ Tour.create!(category_id: 1,
              description: "Du Lịch Bụi",
              avatar: "avatar-7.jpg",
              recent_quantity: "15",
+             average_rating: "4.5",
              max_quantity: max_quantity)
 end
 
@@ -226,6 +233,7 @@ Tour.create!(category_id: 1,
              description: "Du Lịch Nghỉ Dưỡng",
              avatar: "architecture-buildings-business.jpg",
              recent_quantity: "15",
+             average_rating: "4.5",
              max_quantity: max_quantity)
 end
 
@@ -243,5 +251,51 @@ Tour.create!(category_id: 1,
              description: "Du Lịch Bụi",
              avatar: "avatar-5.jpg",
              recent_quantity: "15",
+             average_rating: "4.5",
              max_quantity: max_quantity)
 end
+Booking.create!(user_id: 2,
+                tour_id: 1,
+                quantity: 1,
+                status: 2,
+                bill: Tour.first.price,
+                name: "A",
+                phonenumber: 121999999,
+                address: "Da Nang",
+                note: "1nguoi")
+Booking.create!(user_id: 3,
+                tour_id: 2,
+                quantity: 1,
+                status: 2,
+                bill: Tour.second.price,
+                name: "B",
+                phonenumber: 121888888,
+                address: "Ha Noi",
+                note: "1nguoi")
+Booking.create!(user_id: 3,
+                tour_id: 3,
+                quantity: 1,
+                status: 2,
+                bill: Tour.third.price,
+                name: "B",
+                phonenumber: 121888888,
+                address: "Ha Noi",
+                note: "1nguoi")
+Booking.create!(user_id: 4,
+                tour_id: 3,
+                quantity: 1,
+                status: 2,
+                bill: Tour.third.price,
+                name: "C",
+                phonenumber: 999999999,
+                address: "Sai Gon",
+                note: "1nguoi")
+Booking.create!(user_id: 5,
+                tour_id: 4,
+                quantity: 1,
+                status: 2,
+                bill: Tour.fourth.price,
+                name: "D",
+                phonenumber: 999888888,
+                address: "Hue",
+                note: "1nguoi")

@@ -1,30 +1,28 @@
-<%= form_for(@user, url: signup_path) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="form-group text-left mt-4">
-    <%= f.label :name, t(".name") %>
+    <%= f.label :name, t("name") %>
     <%= f.text_field :name, class: "form-control form-control-fix" %>
-    <span class="error-pattern"></span>
   </div>
   <div class="form-group text-left">
-    <%= f.label :email, t(".email") %>
+    <%= f.label :email, t("email") %>
     <%= f.email_field :email, class: "form-control form-control-fix" %>
-    <span class="error-pattern"></span>
   </div>
   <div class="form-group text-left">
-    <%= f.label :phonenumber, t(".phone_number") %>
+    <%= f.label :phonenumber, t("phone_number") %>
     <%= f.telephone_field :phonenumber, class: "form-control form-control-fix" %>
-    <span class="error-pattern"></span>
   </div>
   <div class="form-group text-left">
-    <%= f.label :password, t(".psw") %>
+    <%= f.label :password, t("password") %>
+    <% if @minimum_password_length %>
+    <em><%= t "min_pass", min_pass: @minimum_password_length %></em>
+    <% end %><br />
     <%= f.password_field :password, class: "form-control form-control-fix" %>
-    <span class="error-pattern"></span>
   </div>
   <div class="form-group text-left">
-    <%= f.label :password_confirmation, t(".pswc") %>
+    <%= f.label :password_confirmation, t("password_confirmation") %>
     <%= f.password_field :password_confirmation, class: "form-control form-control-fix" %>
-    <span class="error-pattern"></span>
   </div>
-  <%= link_to t(".login"), login_path, class: "btn btn-link float-left" %>
+  <%= link_to t("login_now"), new_user_session_path, class: "btn btn-link float-left" %>
   <%= f.submit yield(:button_text), class: "btn btn-primary float-right" %>
 <% end %>

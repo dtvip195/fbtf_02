@@ -8,7 +8,7 @@
       <div class="col-md-8 order-md-first">
         <%= render "tour_details" %>
         <div class="border mt-4">
-          <% if logged_in? %>
+          <% if user_signed_in? %>
           <div class="container-comment border-bottom" id="review_form_<%= @tour_details.id %>">
             <h4><%= t(".your_review") %></h4>
             <%= render partial: "reviews/review_form", locals: {tour_id: @tour_details} %>
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="col-md-4 order-sm-first order-first">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <div class="container-book-tour sticky-top">
             <h3 class="price-tour-detail">
               <%= t(".price") %><%= number_to_currency(@tour_details.price) %>

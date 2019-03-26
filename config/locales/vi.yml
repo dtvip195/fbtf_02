@@ -54,6 +54,7 @@ vi:
   reset_password_instructions: "Someone has requested a link to change your password. You can do this through the link below."
   reset_password_instructions_request: "If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one."
   change_pass: "Change my password"
+  delete_account: "Xóa Tài Khoản"
 
   time:
     formats:
@@ -351,6 +352,9 @@ vi:
         phone: "Phonenumber"
         address: "Address"
         note: "Note"
+        export_excel: "Export Excel"
+        download: "Download: "
+        total_revenue: "Tổng doanh thu: %{revenue}"
       booking:
         refuse: "Refuse"
         approve: "Approve"

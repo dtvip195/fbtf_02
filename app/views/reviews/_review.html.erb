@@ -34,8 +34,8 @@
       <div id="comment_review_<%= review.id %>">
         <%= render partial: "comments/comment", locals: {review_id: review} %>
       </div>
-      <% if user_signed_in? %>
-        <div id="comment_review_form_<%= review.id %>">
+      <div id="comment_review_form_<%= review.id %>">
+        <% if user_signed_in? %>
           <%= render partial: "comments/comment_form", locals: {r_id: review} %>
         </div>
       <% end %>

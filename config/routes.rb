@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :travellings
   resources :tours
   resources :reviews
+  delete "/delete", to: "comments#destroy"
+  resources :comments, only: :create
 
   post "/like", to: "likes#create"
   delete "/unlike", to: "likes#destroy"

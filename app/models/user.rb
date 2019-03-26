@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   attr_accessor :remember_token
   before_save :downcase_email

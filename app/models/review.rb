@@ -6,8 +6,7 @@ class Review < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  validates :content, presence: true, length: {minimum:
-    Settings.review.length_review}
+  validates :content, presence: true
   validate  :picture_size
 
   scope :order_reviews, ->{order created_at: :desc}

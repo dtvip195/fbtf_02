@@ -1,6 +1,6 @@
 <div class="media pt-2 pl-4 pr-4">
   <img src="https://png.icons8.com/ios/40/777777/user-male-circle-filled.png"
-  class="material-icons mr-3 mt-1 rounded-circle" height="48x" width="48px" />
+  class="material-icons mr-3 mt-1 rounded-circle"/>
   <div class="media-body">
     <h5>
       <%= review.user.name %>&nbsp;&nbsp;&nbsp;<small><i>
@@ -10,24 +10,34 @@
     </h5>
     <p><%= review.content %></p>
     <div class="review-rating" data-score=<%= review.rating %>></div>
-    <br>
     <% if logged_in? %>
       <div class="like_review_<%= review.id %>">
-        <%= render partial: "likes/like", locals: {review_id: review.id,
+        <%= render partial: "likes/like", locals: {review_id: review,
           is_like: Like.find_by(user_id: current_user.id, review_id: review.id).present?} %>
       </div>
     <%end %>
-    <span id ="count_like_<%= review.id %>" style="font-size: 14px">
+    <span id ="count_like_<%= review.id %>">
       <%= review.likes.count %>
     </span>
-    <span id ="setting_like_<%= review.id %>" style="font-size: 14px">
+    <span id ="setting_like_<%= review.id %>">
       <%= (review.likes.count) == Settings.likes.count_like ? t(".like") : t(".likes")%>
     </span>
-    <%= hidden_field_tag :id, @tour_details.id %>
     <%= image_tag "#{review.picture}", class: "w-100" %>
     <% if current_user?(review.user) %>
-      <%= link_to "delete", review, method: :delete,
+      <%= link_to t(".delete"), review, method: :delete,
         data: { confirm: "You sure?" } %>
     <% end %>
+    <br>
+    <br>
+    <div id="comment_review_form_<%=review.id%>">
+      <% if logged_in? %>
+        <%= render partial: "comments/comment_form", locals: {r_id: review} %>
+      <% end %>
+    </div>
+    <div id="comment_review_<%=review.id%>">
+      <%= render partial: "comments/comment", locals: {review_id: review} %>
+    </div>
+    <br>
+    <br>
   </div>
 </div>

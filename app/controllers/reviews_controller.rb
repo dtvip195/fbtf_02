@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :load_tour
+  before_action :load_tour, only: :create
   before_action :correct_user, only: :destroy
 
   def create

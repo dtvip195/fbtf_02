@@ -5,7 +5,7 @@
   <div class="general-info">
     <div>
       <p class="general-info-item">
-        <i class="fa fa-map-marker" title="Điểm Đến" ></i>
+        <i class="fa fa-map-marker" title="Điểm Đến"></i>
         <%= @tour_details.travelling.location_end.name %>
       </p>
       <p class="general-info-item">
@@ -13,7 +13,7 @@
         <%= ((@tour_details.time_end).to_date - (@tour_details.time_start).to_date).to_i %> <%= t(".dates") %>
       </p>
       <p class="general-info-item">
-        <i class="fa fa-send" title="Phương Tiện" ></i>
+        <i class="fa fa-send" title="Phương Tiện"></i>
         <%= t(".vehicle") %>
         <i class="fas fa-bus" title="Di Chuyển Bằng Ô Tô"></i>
         <i class="fas fa-plane" title="Di Chuyển Bằng Máy Bay"></i>

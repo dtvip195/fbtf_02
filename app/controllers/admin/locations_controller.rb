@@ -1,5 +1,5 @@
 class Admin::LocationsController < Admin::AdminBaseController
-  before_action :check_permission
+  before_action :is_admin?
   before_action :load_location, except: %i(index create)
 
   def edit; end

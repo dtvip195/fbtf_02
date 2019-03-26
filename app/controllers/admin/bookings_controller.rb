@@ -1,5 +1,5 @@
 class Admin::BookingsController < Admin::AdminBaseController
-  before_action :check_permission
+  before_action :is_admin?
   before_action :load_booking, only: :update
 
   def index

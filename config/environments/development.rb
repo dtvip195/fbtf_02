@@ -31,7 +31,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -61,6 +61,19 @@ Rails.application.configure do
 
   config.middleware.use I18n::JS::Middleware
 
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+   address: Settings.smtp_settings.address,
+   port: Settings.smtp_settings.port,
+   user_name: Settings.smtp_settings.user_name,
+   password: Settings.smtp_settings.password,
+   authentication: Settings.smtp_settings.authentication,
+   enable_starttls_auto: Settings.smtp_settings.enable_starttls_auto,
+   openssl_verify_mode: Settings.smtp_settings.openssl_verify_mode
+  }
 end

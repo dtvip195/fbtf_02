@@ -9,26 +9,29 @@
         <%= render "tour_details" %>
         <div class="border mt-4">
           <% if logged_in? %>
-          <div class="container-comment border-bottom">
+          <div class="container-comment border-bottom" id="review_form_<%= @tour_details.id %>">
             <h4><%= t(".your_review") %></h4>
-            <%= render "reviews/review_form" %>
+            <%= render partial: "reviews/review_form", locals: {tour_id: @tour_details} %>
           </div>
           <% end %>
           <div class="scrollbar">
-            <h2 style="text-align: center"><%= t(".count",count: @reviews.count) %></h2>
-            <%= render @reviews %>
+            <h2 style="text-align: center" id="count_review_<%= @tour_details.id %>">
+              <%= t(".count",count: @reviews.count) %>
+            </h2>
+            <div id="review_<%= @tour_details.id %>">
+              <%= render partial: "reviews/review", locals: {tour_id: @tour_details, review: @reviews} %>
+            </div>
           </div>
-          <%= will_paginate @reviews %>
         </div>
       </div>
       <div class="col-md-4 order-sm-first order-first">
         <% if logged_in? %>
           <div class="container-book-tour sticky-top">
             <h3 class="price-tour-detail">
-              <%= t(".price")%><%= number_to_currency(@tour_details.price) %>
+              <%= t(".price") %><%= number_to_currency(@tour_details.price) %>
             </h3>
             <h5 class="price-tour-detail">
-              <%= t(".quantity")%><%= @tour_details.max_quantity - @tour_details.recent_quantity %>
+              <%= t(".quantity") %><%= @tour_details.max_quantity - @tour_details.recent_quantity %>
             </h5>
             <br>
             <div class="form-group">

@@ -18,20 +18,20 @@ User.create!(name: "Tran Le Thanh Dat",
 end
 
 # create review
-20.times do |n|
+5.times do |n|
   content = Faker::Lorem.sentence(20)
   Review.create!(tour_id: 1,
                  user_id: n+1,
                  content: content)
 end
-20.times do |n|
+5.times do |n|
   content = Faker::Lorem.sentence(20)
   Review.create!(tour_id: 2,
                  user_id: n+1,
                  content: content)
 end
 
-20.times do |n|
+5.times do |n|
   content = Faker::Lorem.sentence(20)
   Review.create!(tour_id: 3,
                  user_id: n+1,

@@ -5,10 +5,7 @@ class ToursController < ApplicationController
     @reviews = @tour_details.reviews.to_a
     @avg_rating = @reviews.blank? ? 0 : @tour_details.reviews.average(:rating)
 
-    @review  = current_user.reviews.build if logged_in?
     @reviews = @tour_details.reviews.order_reviews
-                            .paginate(page: params[:page],
-                              per_page: Settings.review.per_page)
   end
 
   private

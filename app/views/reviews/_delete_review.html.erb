@@ -1,0 +1,2 @@
+<%= link_to t(".delete"), delete_review_path(id: review_id, tour_id: tour_id), method: :delete,
+  remote: true, data: { confirm: t(".sure") } %>

@@ -1,25 +1,31 @@
 class ReviewsController < ApplicationController
-  before_action :load_tour, only: :create
+  before_action :load_tour, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
 
   def create
     @review = current_user.reviews.build(review_params)
     @review.tour_id = @tour.id
     if @review.save
-      flash[:success] = t "review_success"
+      respond_to do |format|
+        format.html{redirect_to request.referrer}
+        format.js
+      end
     else
       flash[:danger] = t "review_fail"
+      redirect_to :review_form
     end
-    redirect_to request.referrer
   end
 
   def destroy
     if @review.destroy
-      flash[:success] = t "review_delete_success"
+      respond_to do |format|
+        format.html{redirect_to request.referrer}
+        format.js
+      end
     else
       flash[:danger] = t "review_detele_fail"
+      redirect_to request.referrer
     end
-    redirect_to request.referrer
   end
 
   private
@@ -29,7 +35,7 @@ class ReviewsController < ApplicationController
   end
 
   def load_tour
-    @tour = Tour.find_by id: params[:id]
+    @tour = Tour.find_by id: params[:tour_id]
     return if @tour
     flash[:danger] = t "no_data"
     redirect_to root_path

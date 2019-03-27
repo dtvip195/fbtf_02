@@ -1,0 +1,10 @@
+$('#review_<%= @tour.id %>').html('<%= j render partial: "reviews/review", locals: {tour_id: @tour, review: @tour.reviews.order_reviews} %>');
+$('#count_review_<%= @tour.id %>').html('<%= t ".count", count: @tour.reviews.size %>');
+$('#load_delete_review<%= @review.id %>').html('<%= j render partial: "delete_review", locals: {review_id: @review, tour_id: @tour} %>');
+$('.review-rating').raty({
+  readOnly: true,
+  path: '/assets/',
+  score: function(){
+    return $(this).attr('data-score');
+  },
+});

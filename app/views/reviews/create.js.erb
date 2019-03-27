@@ -1,0 +1,14 @@
+$('#review_form_<%= @tour.id %>').html('<%= j render partial: "reviews/review_form", locals: {tour_id: @tour} %>');
+$('#review_<%= @tour.id %>').html('<%= j render partial: "reviews/review", locals: {tour_id: @tour, review: @tour.reviews.order_reviews} %>');
+$('#count_review_<%= @tour.id %>').html('<%= t ".count", count: @tour.reviews.size %>');
+$('.review-rating').raty({
+  readOnly: true,
+  path: '/assets/',
+  score: function(){
+    return $(this).attr('data-score');
+  },
+});
+$('#review-rating-form').raty({
+  path: '/assets',
+  scoreName: 'review[rating]',
+});

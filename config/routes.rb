@@ -21,7 +21,10 @@ Rails.application.routes.draw do
   resources :users
   resources :travellings
   resources :tours
-  resources :reviews
+
+  delete "/delete_review", to: "reviews#destroy"
+  resources :reviews, only: :create
+
   delete "/delete", to: "comments#destroy"
   resources :comments, only: :create
 

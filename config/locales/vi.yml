@@ -40,6 +40,19 @@ vi:
       note1: "*Quý khách vui lòng nhập đầy đủ thông tin."
       submit: "Xác nhận"
 
+  #comments:
+  comments:
+    comment:
+      post: "Đã đăng"
+      ago: "trước"
+
+    comment_form:
+      reply: "Gửi trả lời: "
+      send: "Gửi trả lời của bạn"
+
+    delete_comment:
+      delete: "Xóa"
+
   #layouts
   layouts:
     header:
@@ -83,9 +96,15 @@ vi:
       unlike: "Unlike"
       like: "Like"
       likes: "Likes"
+      delete: "Xóa"
+
     review_form:
       format: "image/jpeg,image/gif,image/png"
+      rating: "Đánh giá của bạn: "
+      review: "Viết nhận xét của bạn vào bên dưới:"
+      send: "Gửi nhận xét của bạn"
 
+  #shared
   shared:
     search:
       title: "Trải nghiệm kì nghỉ tuyệt vời"
@@ -132,6 +151,7 @@ vi:
       price: "Giá tiền: "
       quantity: "Số chỗ còn lại: "
       count: "%{count} đánh giá"
+      your_review: "GỬI NHẬN XÉT CỦA BẠN"
 
     tour_details:
       dates: "Ngày"

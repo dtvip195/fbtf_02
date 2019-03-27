@@ -38,6 +38,47 @@ end
                  content: content)
 end
 
+# create comment
+2.times do |n|
+  content = Faker::Lorem.sentence(20)
+  Comment.create!(review_id: 1,
+                 user_id: n+1,
+                 content: content)
+end
+2.times do |n|
+  content = Faker::Lorem.sentence(20)
+  Comment.create!(review_id: 2,
+                 user_id: n+1,
+                 content: content)
+end
+
+2.times do |n|
+  content = Faker::Lorem.sentence(20)
+  Comment.create!(review_id: 3,
+                 user_id: n+1,
+                 content: content)
+end
+
+2.times do |n|
+  content = Faker::Lorem.sentence(20)
+  Comment.create!(review_id: 4,
+                 user_id: n+1,
+                 content: content)
+end
+2.times do |n|
+  content = Faker::Lorem.sentence(20)
+  Comment.create!(review_id: 5,
+                 user_id: n+1,
+                 content: content)
+end
+
+2.times do |n|
+  content = Faker::Lorem.sentence(20)
+  Comment.create!(review_id: 6,
+                 user_id: n+1,
+                 content: content)
+end
+
 # create category
 Category.create!(name: "domestic")
 Category.create!(name: "foreign")

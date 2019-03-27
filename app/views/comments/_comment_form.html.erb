@@ -1,0 +1,9 @@
+<%= form_for current_user.comments.build, remote: true do |f| %>
+  <div class="form-group">
+    <label><%= t(".reply") %></label>&nbsp;
+    <span style="color: red">*</span>
+    <%= f.text_area :content,class:"form-control form-control-fix",rows: "3" %>
+  </div>
+  <%= hidden_field_tag :review_id, r_id.id%>
+  <%= f.submit t(".send"), class: "btn btn-secondary" %>
+<% end %>

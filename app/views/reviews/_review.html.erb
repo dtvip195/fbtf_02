@@ -1,43 +1,46 @@
-<div class="media pt-2 pl-4 pr-4">
-  <img src="https://png.icons8.com/ios/40/777777/user-male-circle-filled.png"
-  class="material-icons mr-3 mt-1 rounded-circle"/>
-  <div class="media-body">
-    <h5>
-      <%= review.user.name %>&nbsp;&nbsp;&nbsp;<small><i>
-        <%= t(".post") %>
-        <%= time_ago_in_words(review.created_at) %>
-        <%= t(".ago")%></i></small>
-    </h5>
-    <p><%= review.content %></p>
-    <div class="review-rating" data-score=<%= review.rating %>></div>
-    <% if logged_in? %>
-      <div class="like_review_<%= review.id %>">
-        <%= render partial: "likes/like", locals: {review_id: review,
-          is_like: Like.find_by(user_id: current_user.id, review_id: review.id).present?} %>
-      </div>
-    <%end %>
-    <span id ="count_like_<%= review.id %>">
-      <%= review.likes.count %>
-    </span>
-    <span id ="setting_like_<%= review.id %>">
-      <%= (review.likes.count) == Settings.likes.count_like ? t(".like") : t(".likes")%>
-    </span>
-    <%= image_tag "#{review.picture}", class: "w-100" %>
-    <% if current_user?(review.user) %>
-      <%= link_to t(".delete"), review, method: :delete,
-        data: { confirm: "You sure?" } %>
-    <% end %>
-    <br>
-    <br>
-    <div id="comment_review_form_<%=review.id%>">
+<% review.each do |review| %>
+  <div class="media pt-2 pl-4 pr-4">
+    <img src="https://png.icons8.com/ios/40/777777/user-male-circle-filled.png"
+    class="material-icons mr-3 mt-1 rounded-circle"/>
+    <div class="media-body">
+      <h5>
+        <%= review.name %>&nbsp;&nbsp;&nbsp;<small><i>
+          <%= t(".post") %>
+          <%= time_ago_in_words(review.created_at) %>
+          <%= t(".ago") %></i></small>
+      </h5>
+      <p><%= review.content %></p>
+      <div class="review-rating" data-score=<%= review.rating %>></div>
       <% if logged_in? %>
-        <%= render partial: "comments/comment_form", locals: {r_id: review} %>
+        <div class="like_review_<%= review.id %>">
+          <%= render partial: "likes/like", locals: {review_id: review,
+            is_like: check_like?(current_user.id, review.id)} %>
+        </div>
       <% end %>
+      <span id ="count_like_<%= review.id %>">
+        <%= review.likes.size %>
+      </span>
+      <span id ="setting_like_<%= review.id %>">
+        <%= like_likes(review) %>
+      </span>
+      <%= image_tag "#{review.picture}", class: "w-100" %>
+      <% if check_user? review.user %>
+        <div id="load_delete_review_<%= review.id %>">
+          <%= render partial: "reviews/delete_review", locals: {review_id: review, tour_id: tour_id} %>
+        </div>
+      <% end %>
+      <br>
+      <br>
+      <div id="comment_review_<%= review.id %>">
+        <%= render partial: "comments/comment", locals: {review_id: review} %>
+      </div>
+      <div id="comment_review_form_<%= review.id %>">
+        <% if logged_in? %>
+          <%= render partial: "comments/comment_form", locals: {r_id: review} %>
+        <% end %>
+      </div>
+      <br>
+      <br>
     </div>
-    <div id="comment_review_<%=review.id%>">
-      <%= render partial: "comments/comment", locals: {review_id: review} %>
-    </div>
-    <br>
-    <br>
   </div>
-</div>
+<% end %>

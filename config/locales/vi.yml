@@ -16,6 +16,8 @@ vi:
   booking_success: "Quý khách đã đặt tour thành công. Chân thành cảm ơn!!!"
   fail: "Lỗi không xác định."
   no_data: "Not Found 404"
+  like: "Like"
+  likes: "Likes"
 
   time:
     formats:
@@ -52,6 +54,7 @@ vi:
 
     delete_comment:
       delete: "Xóa"
+      sure: "You sure?"
 
   #layouts
   layouts:
@@ -94,8 +97,6 @@ vi:
       post: "Đã đăng"
       ago: "trước"
       unlike: "Unlike"
-      like: "Like"
-      likes: "Likes"
       delete: "Xóa"
 
     review_form:
@@ -103,6 +104,16 @@ vi:
       rating: "Đánh giá của bạn: "
       review: "Viết nhận xét của bạn vào bên dưới:"
       send: "Gửi nhận xét của bạn"
+
+    create:
+      count: "%{count} đánh giá"
+
+    destroy:
+      count: "%{count} đánh giá"
+
+    delete_review:
+      delete: "Xóa"
+      sure: "You sure?"
 
   #shared
   shared:

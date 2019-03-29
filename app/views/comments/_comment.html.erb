@@ -4,7 +4,7 @@
     class="material-icons mr-3 mt-1 rounded-circle" height="48x" width="48px" />
     <div class="media-body">
       <h5>
-        <%= c.user.name %>&nbsp;&nbsp;&nbsp;
+        <%= c.name %>&nbsp;&nbsp;&nbsp;
         <small><i>
           <%= t(".post") %>
           <%= time_ago_in_words(c.created_at) %>
@@ -12,7 +12,7 @@
         </small>
       </h5>
       <p><%= c.content %></p>
-      <% if current_user?(c.user) %>
+      <% if check_user?(c.user) %>
         <div id="load_delete_<%=c.id%>">
           <%= render partial: "comments/delete_comment", locals: {comment_id: c, review_id: review_id} %>
         </div>

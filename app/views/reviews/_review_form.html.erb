@@ -1,4 +1,4 @@
-<%= form_for @review do |f| %>
+<%= form_for current_user.reviews.build, remote: true do |f| %>
   <div class="form-group row">
     <%= f.label :rating, t(".rating"), class: "col-sm-2 form-control-label" %>
     <div class="col-sm-6" id='review-rating-form'></div>
@@ -7,7 +7,7 @@
     <label><%= t(".review") %></label>&nbsp;
     <span style="color: red">*</span>
     <%= f.text_area :content,class:"form-control form-control-fix",rows: "3" %>
-    <%= hidden_field_tag :id, @tour_details.id %>
+    <%= hidden_field_tag :tour_id, tour_id.id %>
   </div>
   <%= f.submit t(".send"), class: "btn btn-secondary" %>
   <span class="picture">

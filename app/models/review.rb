@@ -4,6 +4,8 @@ class Review < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  delegate :name, to: :user
+
   mount_uploader :picture, PictureUploader
 
   validates :content, presence: true

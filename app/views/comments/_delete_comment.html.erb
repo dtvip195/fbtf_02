@@ -1,2 +1,2 @@
 <%= link_to t(".delete"), delete_path(id: comment_id,review_id: review_id), method: :delete,
-  remote: true, data: { confirm: "You sure?" } %>
+  remote: true, data: { confirm: t(".sure") } %>

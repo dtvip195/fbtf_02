@@ -34,4 +34,7 @@ booking:
   quantity_value: 1
   quantity_min: 1
 
-
+settings_mailer:
+  address: "127.0.0.1"
+  port: 25
+  domain: "yourdomain.com"

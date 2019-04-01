@@ -11,7 +11,7 @@
       </h5>
       <p><%= review.content %></p>
       <div class="review-rating" data-score=<%= review.rating %>></div>
-      <% if logged_in? %>
+      <% if user_signed_in?  %>
         <div class="like_review_<%= review.id %>">
           <%= render partial: "likes/like", locals: {review_id: review,
             is_like: check_like?(current_user.id, review.id)} %>
@@ -35,7 +35,7 @@
         <%= render partial: "comments/comment", locals: {review_id: review} %>
       </div>
       <div id="comment_review_form_<%= review.id %>">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <%= render partial: "comments/comment_form", locals: {r_id: review} %>
         <% end %>
       </div>

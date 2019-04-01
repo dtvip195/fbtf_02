@@ -8,7 +8,7 @@ class Admin::AdminBaseController < ApplicationController
   end
 
   def check_permission
-    return unless logged_in?
+    return unless user_signed_in?
     check_admin
   end
 end

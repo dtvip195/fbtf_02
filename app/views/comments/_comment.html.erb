@@ -12,7 +12,7 @@
         </small>
       </h5>
       <p><%= c.content %></p>
-      <% if check_user?(c.user) %>
+      <% if can? :destroy, c %>
         <div id="load_delete_<%=c.id%>">
           <%= render partial: "comments/delete_comment", locals: {comment_id: c, review_id: review_id} %>
         </div>

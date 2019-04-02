@@ -11,7 +11,7 @@
       </h5>
       <p><%= review.content %></p>
       <div class="review-rating" data-score=<%= review.rating %>></div>
-      <% if user_signed_in?  %>
+      <% if user_signed_in? %>
         <div class="like_review_<%= review.id %>">
           <%= render partial: "likes/like", locals: {review_id: review,
             is_like: check_like?(current_user.id, review.id)} %>
@@ -24,7 +24,7 @@
         <%= like_likes(review) %>
       </span>
       <%= image_tag "#{review.picture}", class: "w-100" %>
-      <% if check_user? review.user %>
+      <% if can? :destroy, review %>
         <div id="load_delete_review_<%= review.id %>">
           <%= render partial: "reviews/delete_review", locals: {review_id: review, tour_id: tour_id} %>
         </div>
@@ -34,11 +34,11 @@
       <div id="comment_review_<%= review.id %>">
         <%= render partial: "comments/comment", locals: {review_id: review} %>
       </div>
-      <div id="comment_review_form_<%= review.id %>">
-        <% if user_signed_in? %>
+      <% if user_signed_in? %>
+        <div id="comment_review_form_<%= review.id %>">
           <%= render partial: "comments/comment_form", locals: {r_id: review} %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <br>
       <br>
     </div>

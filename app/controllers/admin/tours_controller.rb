@@ -1,5 +1,5 @@
 class Admin::ToursController < Admin::AdminBaseController
-  before_action :check_permission
+  before_action :is_admin?
   before_action :load_tour, only: %i(edit update destroy)
   before_action :load_travellings, only: %i(new edit)
 

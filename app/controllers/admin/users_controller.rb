@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::AdminBaseController
-  before_action :check_permission
+  before_action :is_admin?
   before_action :load_user, only: %i(destroy show)
 
   def show

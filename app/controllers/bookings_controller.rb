@@ -3,6 +3,8 @@ class BookingsController < ApplicationController
   before_action :check_quanlity, :load_booking, only: :create
   before_action :find_booking, only: :destroy
 
+  authorize_resource
+
   def new
     @booking = current_user.bookings.new
   end

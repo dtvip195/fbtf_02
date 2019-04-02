@@ -9,10 +9,10 @@
         <%= render "tour_details" %>
         <div class="border mt-4">
           <% if user_signed_in? %>
-          <div class="container-comment border-bottom" id="review_form_<%= @tour_details.id %>">
-            <h4><%= t(".your_review") %></h4>
-            <%= render partial: "reviews/review_form", locals: {tour_id: @tour_details} %>
-          </div>
+            <div class="container-comment border-bottom" id="review_form_<%= @tour_details.id %>">
+              <h4><%= t(".your_review") %></h4>
+              <%= render partial: "reviews/review_form", locals: {tour_id: @tour_details} %>
+            </div>
           <% end %>
           <div class="scrollbar">
             <h2 style="text-align: center" id="count_review_<%= @tour_details.id %>">

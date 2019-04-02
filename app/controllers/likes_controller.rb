@@ -1,16 +1,18 @@
 class LikesController < ApplicationController
   before_action :find_review, only: [:create, :destroy]
 
+  authorize_resource
+
   def create
-    if !already_liked?
+    if already_liked?
+      flash[:danger] = t "like_fail"
+      redirect_to request.referrer
+    else
       current_user.likes.create!(review_id: params[:review_id])
       respond_to do |format|
         format.html{redirect_to request.referrer}
         format.js
       end
-    else
-      flash[:danger] = t "like_fail"
-      redirect_to request.referrer
     end
   end
 

@@ -1,5 +1,5 @@
 class Admin::StaticPagesController < Admin::AdminBaseController
-  before_action :check_permission, only: :show
+  before_action :is_admin?, only: :show
 
   def show; end
 end

@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :load_review, only: [:create, :destroy]
-  before_action :correct_user, only: :destroy
+
+  load_and_authorize_resource
 
   def create
     @comment = current_user.comments.build(comment_params)
@@ -37,13 +38,6 @@ class CommentsController < ApplicationController
   def load_review
     @review = Review.find_by id: params[:review_id]
     return if @review
-    flash[:danger] = t "no_data"
-    redirect_to root_path
-  end
-
-  def correct_user
-    @comment = current_user.comments.find_by(id: params[:id])
-    return if @comment
     flash[:danger] = t "no_data"
     redirect_to root_path
   end

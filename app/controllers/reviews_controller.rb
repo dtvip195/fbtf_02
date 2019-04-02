@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :load_tour, only: [:create, :destroy]
-  before_action :correct_user, only: :destroy
+
+  load_and_authorize_resource
 
   def create
     @review = current_user.reviews.build(review_params)
@@ -37,13 +38,6 @@ class ReviewsController < ApplicationController
   def load_tour
     @tour = Tour.find_by id: params[:tour_id]
     return if @tour
-    flash[:danger] = t "no_data"
-    redirect_to root_path
-  end
-
-  def correct_user
-    @review = current_user.reviews.find_by(id: params[:id])
-    return if @review
     flash[:danger] = t "no_data"
     redirect_to root_path
   end

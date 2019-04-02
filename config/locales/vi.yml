@@ -46,6 +46,14 @@ vi:
   sure?: "Are you sure?"
   min_pass: "(Ít nhất %{min_pass} kí tự)"
   delete_account: "Xóa Tài Khoản"
+  confirmation_instructions: "You can confirm your account email through the link below:"
+  confirm_account: "Confirm my account"
+  welcome: "Welcome %{email} !"
+  hello: "Hello %{email} !"
+  password_change: "We're contacting you to notify you that your password has been changed %{password_change}."
+  reset_password_instructions: "Someone has requested a link to change your password. You can do this through the link below."
+  reset_password_instructions_request: "If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one."
+  change_pass: "Change my password"
 
   time:
     formats:

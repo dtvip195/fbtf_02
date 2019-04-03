@@ -5,6 +5,15 @@ class Admin::BookingsController < Admin::AdminBaseController
   def index
     @bookings = Booking.order_bookings.paginate page: params[:page],
       per_page: Settings.travelling_per_page
+    respond_to do |format|
+      format.html
+      format.xls do
+        filename = "Booking-#{Time.now.strftime('%Y%m%d%H%M%S')}.xls"
+        send_data(@bookings.to_a.to_xls,
+          type: "text/xls; charset=utf-8; header=present",
+          filename: filename)
+      end
+    end
     @salary = Booking.sum(:bill)
   end
 

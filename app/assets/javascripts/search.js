@@ -2,21 +2,20 @@ $(document).on('turbolinks:load', function() {
   $input = $("[data-behavior='autocomplete']")
 
   var options = {
-    getValue: "name",
+    getValue: 'name',
     url: function(phrase){
-      return "/search?q=" + phrase;
+      return '/search?q=' + phrase;
     },
     categories: [
       {
-        listLocation: "locations",
+        listLocation: 'locations',
       }
     ],
     list: {
       onChooseEvent: function() {
         var url = $input.getSelectedItemData().url
-        $input.val("")
-        Turbolinks.visit("index?location_end_id="+url)
-        console.log(url)
+        $input.val('')
+        Turbolinks.visit('index?location_end_id='+url)
       }
     }
   }

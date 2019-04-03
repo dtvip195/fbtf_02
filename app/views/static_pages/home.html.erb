@@ -1,5 +1,37 @@
 <% provide :title, t(".title") %>
-<%= render "slideshow" %>
+<div class="slide-search">
+  <div id="slide" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#slide" data-slide-to="0" class="active"></li>
+      <li data-target="#slide" data-slide-to="1"></li>
+      <li data-target="#slide" data-slide-to="2"></li>
+    </ul>
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= link_to image_tag("bg-search.jpg",
+        width: "100%", height: "550", alt: "1")%>
+      </div>
+      <div class="carousel-item">
+        <%= link_to image_tag("bg-search.jpg",
+        width: "100%", height: "550", alt: "2")%>
+      </div>
+      <div class="carousel-item">
+        <%= link_to image_tag("bg-search.jpg",
+        width: "100%", height: "550", alt: "3")%>
+      </div>
+    </div>
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#slide" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#slide" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+  <%= render "search" %>
+</div>
 <div class="container-tour">
   <div class="container pb-4">
     <div class="tour-hot-container">

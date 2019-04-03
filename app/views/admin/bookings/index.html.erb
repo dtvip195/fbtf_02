@@ -2,8 +2,8 @@
   <div class="card">
     <div class="card-body">
       <div class="table-responsive">
-        <table class="table table-bordered" style="font-size:15px; text-align: center">
-          <p class="btn btn-info"><%= "Tổng doanh thu: #{number_to_currency(@salary)}" %></p>
+        <table class="table table-bordered", id="table_booking">
+          <p class="btn btn-info"><%= t(".total_revenue", revenue: number_to_currency(@salary)) %>
           <thead>
             <tr>
               <th><%= t(".user_id") %></th>
@@ -22,6 +22,12 @@
           </tbody>
         </table>
         <%= will_paginate %>
+      </div>
+      <div class="container">
+        <p>
+          <%= t(".download") %>
+          <%= link_to t(".export_excel"), admin_bookings_path(format: :xls) %>
+        </p>
       </div>
     </div>
   </div>

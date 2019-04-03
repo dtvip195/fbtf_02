@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  # before_action :find_search, only: :search
+
   def home
     @new_tour = Tour.where_time_start(Date.current)
                     .order_new_tours

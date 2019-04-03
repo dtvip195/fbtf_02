@@ -5,8 +5,8 @@ User.create!(name: "Tran Le Thanh Dat",
              password: "123456",
              password_confirmation: "123456",
              role: 1,
-             confirmed_at: "2019-03-29 04:07:11.311314",
-             updated_at: "2019-03-29 04:07:11.312427")
+             confirmed_at: Time.current,
+             updated_at: Time.current)
 
 20.times do |n|
   name = Faker::Name.name

@@ -12,4 +12,8 @@ class Travelling < ApplicationRecord
 
   scope :group_travellings, ->{group :location_end_id}
   scope :where_travellings, ->(id){where location_end_id: id}
+
+  scope :search_travellings, (lambda do |location_ids|
+    where location_end: location_ids
+  end)
 end

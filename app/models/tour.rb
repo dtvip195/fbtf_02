@@ -9,7 +9,8 @@ class Tour < ApplicationRecord
   delegate :location_end, to: :travelling
 
   scope :order_new_tours, ->{order created_at: :desc}
-  scope :search, (lambda do |travelling_ids|
+  scope :order_tours, ->{order time_start: :asc}
+  scope :search_tours, (lambda do |travelling_ids|
     where travelling_id: travelling_ids if travelling_ids
   end)
   scope :where_time_start, ->(time_start){where "time_start >= ?", time_start}

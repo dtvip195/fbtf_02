@@ -6,38 +6,18 @@
     </div>
     <div class="row">
       <div class="col-md-8">
-        <form action="">
+        <%= form_with url: search_path, local: true, method: :get do |f| %>
           <div class="search-form">
             <div class="search-location">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Địa điểm đến">
+                <%= f.text_field :q, class: "form-control rounded-0", placeholder: "Địa điểm đến", data: {behavior: "autocomplete"} %>
                 <div class="input-group-append">
-                  <input type="submit" class="btn btn-info pr-4 pl-4" value="Tìm">
+                  <%= f.button t("submit"), class: "btn btn-info pr-4 pl-4" %>
                 </div>
-                <!-- <ul class="list-group result-search" style="margin-top: 40px">
-                  <li class="list-group-item list-group-item-action list-group-item-search">
-                    <a to="#" style="text-decoration: none; width: 100%;">
-                      <span class="badge badge-info badge-location">Đà Nẵng - Hà Nội</span>
-                      <div class="text-result">
-                        <p class="m-0 result-title" style="color: black">Tour Đà Nẵng - Hà Nội 4 ngày</p>
-                        <p class="m-0 text-muted">5.400.000 VND</p>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="list-group-item list-group-item-action list-group-item-search">
-                    <a to="#" style="text-decoration: none; width: 100%;">
-                      <span class="badge badge-info badge-location">Đà Nẵng - Hồ Chí Minh</span>
-                      <div class="text-result">
-                        <p class="m-0 result-title" style="color: black">Tour Đà Nẵng - Hồ Chí Minh 7 ngày</p>
-                        <p class="m-0 text-muted">8.300.000 VND</p>
-                      </div>
-                    </a>
-                  </li>
-                </ul> -->
               </div>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   devise_for :users
+  get "/search", to: "static_pages#search"
   get "/index", to: "travellings#index"
   get "/show", to: "travellings#show"
   get "/signup", to: "users#new"

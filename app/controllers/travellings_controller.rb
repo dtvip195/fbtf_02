@@ -8,8 +8,9 @@ class TravellingsController < ApplicationController
                     Travelling.all
                   end
 
-    @tours = Tour.search(@travelling.pluck(:id))
+    @tours = Tour.search_tours(@travelling.pluck(:id))
                  .where_time_start(Date.current)
+                 .order_tours
                  .paginate(page: params[:page],
                    per_page: Settings.tours.per_page)
   end

@@ -9,6 +9,11 @@
           <%= time_ago_in_words(review.created_at) %>
           <%= t(".ago") %></i></small>
       </h5>
+      <% if can? :destroy, review %>
+        <div id="load_delete_review_<%= review.id %>">
+          <%= render partial: "reviews/delete_review", locals: {review_id: review, tour_id: tour_id} %>
+        </div>
+      <% end %>
       <p><%= review.content %></p>
       <div class="review-rating" data-score=<%= review.rating %>></div>
       <% if user_signed_in? %>
@@ -24,11 +29,6 @@
         <%= like_likes(review) %>
       </span>
       <%= image_tag "#{review.picture}", class: "w-100" %>
-      <% if can? :destroy, review %>
-        <div id="load_delete_review_<%= review.id %>">
-          <%= render partial: "reviews/delete_review", locals: {review_id: review, tour_id: tour_id} %>
-        </div>
-      <% end %>
       <br>
       <br>
       <div id="comment_review_<%= review.id %>">

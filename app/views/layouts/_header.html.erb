@@ -1,8 +1,8 @@
 <nav class="bg-blue-tiki navbar-custom">
   <div class="navbar navbar-expand-md bg-blue-tiki navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="#">
-    <%= link_to image_tag("logo.png", class: "img", alt: "S Travel"), "/" %>
+    <a class="navbar-brand" href="/" style="height: 40px; padding: 0; margin: 0">
+    <%= image_tag("logo.png", class: "img", alt: "S Travel")%>
     </a>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -26,6 +26,7 @@
             <button type="button" class="btn btn-outline-light btn-user">
               <%= link_to image_tag("architecture-buildings-business.jpg",
                 class: "rounded-circle", size: "28"), root_path %>
+              &nbsp;
               <%= current_user.name %>
             </button>
             <div class="dropdown-content">

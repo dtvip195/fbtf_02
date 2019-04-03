@@ -14,7 +14,7 @@
               <%= render partial: "reviews/review_form", locals: {tour_id: @tour_details} %>
             </div>
           <% end %>
-          <div class="scrollbar">
+          <div class="scrollbar pb-3" style="max-height: 800px">
             <h2 style="text-align: center" id="count_review_<%= @tour_details.id %>">
               <%= t(".count",count: @reviews.count) %>
             </h2>

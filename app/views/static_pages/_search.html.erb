@@ -9,10 +9,10 @@
         <%= form_with url: search_path, local: true, method: :get do |f| %>
           <div class="search-form">
             <div class="search-location">
-              <div class="input-group">
+              <div class="input-group input-search-fixed">
                 <%= f.text_field :q, class: "form-control rounded-0", placeholder: "Địa điểm đến", data: {behavior: "autocomplete"} %>
-                <div class="input-group-append">
-                  <%= f.button t("submit"), class: "btn btn-info pr-4 pl-4" %>
+                <div class="input-group-append" style="witdh: 120px">
+                  <%= f.button t("submit"), class: "btn btn-primary pr-4 pl-4" %>
                 </div>
               </div>
             </div>

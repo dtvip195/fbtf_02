@@ -70,8 +70,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
    address: Settings.smtp_settings.address,
    port: Settings.smtp_settings.port,
-   user_name: Settings.smtp_settings.user_name,
-   password: Settings.smtp_settings.password,
+   user_name: ENV["GMAIL_USERNAME"],
+   password: ENV["GMAIL_PASSWORD"],
    authentication: Settings.smtp_settings.authentication,
    enable_starttls_auto: Settings.smtp_settings.enable_starttls_auto,
    openssl_verify_mode: Settings.smtp_settings.openssl_verify_mode

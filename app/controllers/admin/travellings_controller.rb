@@ -1,5 +1,4 @@
 class Admin::TravellingsController < Admin::AdminBaseController
-  before_action :is_admin?
   before_action :load_travelling, only: %i(edit update destroy)
   before_action :load_locations, only: %i(edit new)
 

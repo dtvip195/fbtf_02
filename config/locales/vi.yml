@@ -244,7 +244,7 @@ vi:
       bill: "Tổng Tiền"
 
   #admin
-  err_location: "Nhập Sai"
+  err_location: "Địa điểm này đã có."
   add_location_success: "Thành Công"
   update_location_success: "Thay đổi thành công"
   update_location_failed: "Thay đổi không thành công"

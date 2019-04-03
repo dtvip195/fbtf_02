@@ -1,6 +1,21 @@
 class Admin::LocationsController < Admin::AdminBaseController
-  before_action :is_admin?
   before_action :load_location, except: %i(index create)
+
+  def index
+    @location = Location.new
+    @locations = Location.ordered_by_name.paginate page: params[:page],
+      per_page: Settings.location_per_page
+  end
+
+  def create
+    @location = Location.new location_params
+    if @location.save
+      flash[:success] = t "add_location_success"
+    else
+      flash[:danger] = t "err_location"
+    end
+    redirect_to admin_locations_path
+  end
 
   def edit; end
 
@@ -23,22 +38,6 @@ class Admin::LocationsController < Admin::AdminBaseController
     redirect_to admin_locations_path
   end
 
-  def create
-    @location = Location.new location_params
-    if @location.save
-      flash[:success] = t "add_location_success"
-    else
-      flash[:danger] = t "err_location"
-    end
-    redirect_to admin_locations_path
-  end
-
-  def index
-    @location = Location.new
-    @locations = Location.ordered_by_name.paginate page: params[:page],
-      per_page: Settings.location_per_page
-  end
-
   private
 
   def location_params
@@ -48,7 +47,7 @@ class Admin::LocationsController < Admin::AdminBaseController
   def load_location
     @location = Location.find_by id: params[:id]
     return if @location
-    flash[:danger] = t "err_location"
+    flash[:danger] = t "del_location_failed"
     redirect_to admin_locations_path
   end
 end

@@ -89,6 +89,9 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  # Send mail with background job
+  config.active_job.queue_adapter = :delayed_job
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.default_url_options = {host: Settings.settings_mailer.domain}

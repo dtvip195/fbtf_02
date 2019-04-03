@@ -15,10 +15,12 @@ class BookingsController < ApplicationController
       @tour.recent_quantity += @booking.quantity
       @tour.update_attributes!(recent_quantity: @tour.recent_quantity)
       flash[:success] = t "booking_success"
+      SendEmailJob.set(wait: 20.seconds).perform_later(@booking)
+      redirect_to root_path
     rescue ActiveRecord::RecordInvalid
       flash[:danger] = t "booking_fail1"
+      redirect_to request.referrer
     end
-    redirect_to request.referrer
   end
 
   def destroy

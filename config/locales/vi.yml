@@ -55,11 +55,24 @@ vi:
   reset_password_instructions_request: "If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one."
   change_pass: "Change my password"
   delete_account: "Xóa Tài Khoản"
+  booking_success: "Booking Success"
 
   time:
     formats:
       defaut: "%H:%M %d/%m/%Y"
       date: "%e/%m/%y"
+
+  #booking_mailer:
+  booking_mailer:
+    booking_email:
+      hello: "S Travel Xin chào Quý Khách %{name}!. Sau đây là thông tin đặt tour của Quý Khách:"
+      tour: "Tour: "
+      time_start: "Thời gian khởi hành: "
+      time_created: "Thời gian đặt tour: "
+      booking_quantity: "Số lượng: "
+      bill: "Tổng tiền: "
+      thanks: "Xin chân thành cảm ơn! Chúc Quý Khách một ngày vui vẻ!"
+      read_more: "Xem thêm"
 
   #bookings
   bookings:

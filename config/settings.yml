@@ -1,6 +1,8 @@
 size: 80
 location_per_page: 10
 travelling_per_page: 10
+xls: :xls
+
 user:
   max_email: 255
   min_pass: 6
@@ -49,3 +51,4 @@ smtp_settings:
   openssl_verify_mode: "none"
   localhost: "localhost"
   port_localhost: 3000
+

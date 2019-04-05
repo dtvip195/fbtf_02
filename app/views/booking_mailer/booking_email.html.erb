@@ -1,0 +1,23 @@
+<h1><%= t(".hello", name: @booking.name) %></h1>
+<p>
+  <%= t ".tour" %>
+  <%= @booking.tour.location_start.name %> - <%= @booking.tour.location_end.name %>
+</p>
+<p>
+  <%= t ".time_start" %>
+  <%= l @booking.tour.time_start, format: :defaut %>
+</p>
+<p>
+  <%= t ".time_created" %>
+  <%= l @booking.created_at, format: :defaut %>
+</p>
+<p>
+  <%= t ".booking_quantity" %>
+  <%= @booking.quantity %>
+</p>
+<p>
+  <%= t ".bill" %>
+  <%= number_to_currency(@booking.bill) %>
+</p>
+<button><a href="https://facebook.com/thanhdat128"><%= t ".read_more" %></a></button>
+<h1><%= t ".thanks" %></h1>

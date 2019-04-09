@@ -44,8 +44,6 @@ settings_mailer:
 smtp_settings:
   address: "smtp.gmail.com"
   port: 587
-  user_name: "tranlethanhdat120895@gmail.com"
-  password: "Thanhdat128195"
   authentication: "plain"
   enable_starttls_auto: true
   openssl_verify_mode: "none"

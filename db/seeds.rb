@@ -149,7 +149,7 @@ Tour.create!(category_id: 1,
              time_end: time_end,
              title: "Du Lịch Trong Nuoc",
              description: "Du Lịch Bụi",
-             avatar: "avatar-5.jpg",
+             avatar: "hoi-an.jpg",
              recent_quantity: recent_quantity,
              max_quantity: max_quantity)
 end
@@ -165,7 +165,7 @@ Tour.create!(category_id: 2,
              time_end: time_end,
              title: "Du Lich Trong Nước",
              description: "Du Lịch Nghỉ Dưỡng",
-             avatar: "avatar-7.jpg",
+             avatar: "travel.jpg",
              recent_quantity: "10",
              max_quantity: max_quantity)
 end
@@ -182,7 +182,7 @@ Tour.create!(category_id: 1,
              time_end: time_end,
              title: "Du Lich Trong Nước",
              description: "Du Lịch Bụi",
-             avatar: "architecture-buildings-business.jpg",
+             avatar: "ho-chi-minh.jpg",
              recent_quantity: "11",
              max_quantity: max_quantity)
 end
@@ -199,7 +199,7 @@ Tour.create!(category_id: 1,
              time_end: time_end,
              title: "Du Lich Trong Nước",
              description: "Du Lịch Nghỉ Dưỡng",
-             avatar: "avatar-5.jpg",
+             avatar: "hoi-an.jpg",
              recent_quantity: "12",
              max_quantity: max_quantity)
 end
@@ -216,7 +216,7 @@ Tour.create!(category_id: 1,
              time_end: time_end,
              title: "Du Lich Trong Nước",
              description: "Du Lịch Bụi",
-             avatar: "avatar-7.jpg",
+             avatar: "hoi-an-1.jpg",
              recent_quantity: "13",
              max_quantity: max_quantity)
 end
@@ -233,7 +233,7 @@ Tour.create!(category_id: 1,
              time_end: time_end,
              title: "Du Lich Trong Nước",
              description: "Du Lịch Nghỉ Dưỡng",
-             avatar: "architecture-buildings-business.jpg",
+             avatar: "viet-nam.jpg",
              recent_quantity: "14",
              max_quantity: max_quantity)
 end
@@ -250,7 +250,7 @@ Tour.create!(category_id: 1,
              time_end: time_end,
              title: "Du Lịch Trong Nước",
              description: "Du Lịch Bụi",
-             avatar: "avatar-7.jpg",
+             avatar: "travel.jpg",
              recent_quantity: "15",
              max_quantity: max_quantity)
 end
@@ -267,7 +267,7 @@ Tour.create!(category_id: 1,
              time_end: time_end,
              title: "Du Lich Trong Nước",
              description: "Du Lịch Nghỉ Dưỡng",
-             avatar: "architecture-buildings-business.jpg",
+             avatar: "hoi-an.jpg",
              recent_quantity: "15",
              max_quantity: max_quantity)
 end
@@ -284,7 +284,7 @@ Tour.create!(category_id: 1,
              time_end: time_end,
              title: "Du Lich Trong Nước",
              description: "Du Lịch Bụi",
-             avatar: "avatar-5.jpg",
+             avatar: "hoi-an.jpg",
              recent_quantity: "15",
              max_quantity: max_quantity)
 end

@@ -57,6 +57,18 @@ vi:
   delete_account: "Xóa Tài Khoản"
   booking_success: "Booking Success"
 
+  #ActiveRecord
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            phonenumber:
+              too_long: "quá dài (tối đa %{count} ký tự)"
+              too_short: "quá ngắn (tối thiểu %{count} ký tự)"
+            name:
+              blank: "không thể để trống"
+
   time:
     formats:
       defaut: "%H:%M %d/%m/%Y"

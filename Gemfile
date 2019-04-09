@@ -34,19 +34,23 @@ gem "will_paginate-bootstrap4"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "sqlite3", "~> 1.3.13"
+  gem "capybara"
+  gem "factory_bot_rails", require: false
+  gem "rspec-rails"
 end
 
 group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem "sqlite3", "~> 1.3.13"
   gem "web-console", ">= 3.3.0"
 end
 group :test do
-  gem "capybara", ">= 2.15"
   gem "chromedriver-helper"
+  gem "database_cleaner"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
 end
 
 group :production do

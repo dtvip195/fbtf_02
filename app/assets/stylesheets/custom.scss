@@ -153,7 +153,7 @@ $alert-color: #ff0000;
 
 .img{
   max-width:100px;
-  margin-top: -7px;
+  height: 100%;
 }
 
 th{
@@ -172,7 +172,6 @@ th{
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 8px;
   right: 15px;
 }
 .linedivide{
@@ -233,6 +232,7 @@ th{
   background-color: #ECF0F5;
 }
 .card-tour{
+  margin: 15px 0;
   color: #333;
   border-radius: 0 !important;
   text-decoration: none !important;
@@ -773,14 +773,16 @@ a:hover{
   margin: 0 auto;
 }
 .btn-user{
+  display: flex;
   padding-left: 5px;
   height: 40px;
   border-radius: 20px;
+  white-space: nowrap;
 }
 .dropdown-content {
   display: none;
   position: absolute;
-  width: 160px;
+  width: 200px;
   background-color: #f1f1f1;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1999;
@@ -950,14 +952,20 @@ a:hover{
   border-left: 15px solid transparent;
   border-top: 15px solid #9c0000;
 }
+.input-search-fixed{
+  flex-wrap: nowrap !important;
+}
+.input-search-fixed > div{
+  min-width: calc(100% - 120px) !important;
+}
 @media screen and (max-width: 767px) {
   .nav-user{
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    margin-right: 65px;
-    top: 8px;
+    margin-right: 30px;
+    top: 4px;
     right: 15px;
   }
   .img-card-tour-page{

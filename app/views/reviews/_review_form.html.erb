@@ -1,6 +1,6 @@
 <%= form_for current_user.reviews.build, remote: true do |f| %>
   <div class="form-group row">
-    <%= f.label :rating, t(".rating"), class: "col-sm-2 form-control-label" %>
+    <%= f.label :rating, t(".rating"), class: "col-sm-4 form-control-label" %>
     <div class="col-sm-6" id='review-rating-form'></div>
   </div>
   <div class="form-group">

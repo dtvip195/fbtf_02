@@ -1,0 +1,13 @@
+$('#load_edit_review_<%= @review.id %>').html('<%= j render partial: "reviews/edit_review", locals: {review: @review} %>');
+
+$('.review-rating').raty({
+  readOnly: true,
+  path: '/assets/',
+  score: function(){
+    return $(this).attr('data-score');
+  },
+});
+$('#review-rating-edit-form').raty({
+  path: '/assets',
+  scoreName: 'review[rating]',
+});

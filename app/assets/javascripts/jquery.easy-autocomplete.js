@@ -99,9 +99,9 @@ var EasyAutocomplete = (function(scope){
 
 			cssClasses: "",
 
-			minCharNumber: 0,
+			minCharNumber: 2,
 
-			requestDelay: 0,
+			requestDelay: 250,
 
 			adjustWidth: true,
 

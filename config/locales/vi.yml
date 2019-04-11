@@ -3,13 +3,13 @@ vi:
   errs: "Có %{errors_count}."
   msg_success: "Chúc mừng bạn đã đăng ký thành công."
   err_login: "Tài khoản hoặc mật khẩu không đúng."
-  permission_denide: "Bạn không có quyền truy cập"
+  permission_denide: "Bạn không có quyền truy cập."
   date: "Số ngày: "
   review_success: "Cảm Ơn Đã Đánh Giá."
-  review_fail: "Review phải nhiều hơn 10 chữ."
-  review_delete_success: "Xóa review thành công"
-  review_delete_fail: "Xóa review thất bại"
-  no_data: "Not Found 404"
+  review_fail: "Review thất bại."
+  review_delete_success: "Xóa review thành công."
+  review_delete_fail: "Xóa review thất bại."
+  no_data: "Not Found 404."
   like_fail: "Bạn đã like review này."
   booking_fail: "Bạn đã nhập quá số lượng cho phép."
   booking_fail1: "Bạn phải nhập đầy đủ thông tin."
@@ -160,12 +160,20 @@ vi:
       ago: "trước"
       unlike: "Unlike"
       delete: "Xóa"
+      reply: "Trả lời"
+      edit: "Sửa"
 
     review_form:
       format: "image/jpeg,image/gif,image/png"
       rating: "Đánh giá của bạn: "
       review: "Viết nhận xét của bạn vào bên dưới:"
       send: "Gửi nhận xét của bạn"
+
+    edit_review:
+      rating: "Đánh giá của bạn: "
+      edit_review: "Sửa nhận xét:"
+      submit: "Xác nhận"
+      format: "image/jpeg,image/gif,image/png"
 
     create:
       count: "%{count} đánh giá"

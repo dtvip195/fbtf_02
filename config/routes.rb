@@ -16,10 +16,10 @@ Rails.application.routes.draw do
   resources :tours
 
   delete "/delete_review", to: "reviews#destroy"
-  resources :reviews, only: :create
+  resources :reviews, only: %i(create edit update)
 
   delete "/delete", to: "comments#destroy"
-  resources :comments, only: :create
+  resources :comments, only: %i(new create)
 
   post "/like", to: "likes#create"
   delete "/unlike", to: "likes#destroy"

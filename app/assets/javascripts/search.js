@@ -14,7 +14,6 @@ $(document).on('turbolinks:load', function() {
     list: {
       onChooseEvent: function() {
         var url = $input.getSelectedItemData().url
-        $input.val('')
         Turbolinks.visit('index?location_end_id='+url)
       }
     }

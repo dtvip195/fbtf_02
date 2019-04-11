@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
     @review.tour_id = @tour.id
     if @review.save
       respond_to do |format|
-        format.html{redirect_to request.referrer}
         format.js
       end
     else
@@ -17,10 +16,26 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    if @review.update_attributes review_params
+      respond_to do |format|
+        format.js
+      end
+    else
+      flash[:danger] = t "review_fail"
+      redirect_to request.referrer
+    end
+  end
+
   def destroy
     if @review.destroy
       respond_to do |format|
-        format.html{redirect_to request.referrer}
         format.js
       end
     else

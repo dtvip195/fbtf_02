@@ -4,6 +4,6 @@
     <span style="color: red">*</span>
     <%= f.text_area :content,class:"form-control form-control-fix",rows: "3" %>
   </div>
-  <%= hidden_field_tag :review_id, r_id.id%>
+  <%= hidden_field_tag :review_id, review.id%>
   <%= f.submit t(".send"), class: "btn btn-secondary" %>
 <% end %>

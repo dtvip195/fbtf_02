@@ -1,0 +1,16 @@
+$('#load_edit_review_<%= @review.id %>').html('');
+$('#load_edit_review_content<%= @review.id %>').html('<%= @review.content %>');
+$('#img_review_<%= @review.id %>').html('<%= image_tag "#{@review.picture}", class: "w-100" %>');
+$('#review_rating_edit<% @review.id %>').html('<div class="review-rating", data-score=<%= @review.rating %>></div>');
+
+$('.review-rating').raty({
+  readOnly: true,
+  path: '/assets/',
+  score: function(){
+    return $(this).attr('data-score');
+  },
+});
+$('#review-rating-form').raty({
+  path: '/assets',
+  scoreName: 'review[rating]',
+});

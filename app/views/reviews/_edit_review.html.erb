@@ -1,0 +1,15 @@
+<%= form_for review, remote: true do |f| %>
+  <div class="form-group row">
+    <%= f.label :rating, t(".rating"), class: "col-sm-4 form-control-label" %>
+    <div class="col-sm-6" id='review-rating-edit-form'></div>
+  </div>
+  <div class="form-group">
+    <label><%= t(".edit_review") %></label>&nbsp;
+    <span style="color: red">*</span>
+    <%= f.text_area :content,class:"form-control form-control-fix", rows: "3" %>
+  </div>
+  <%= f.submit t(".submit"), class: "btn btn-secondary" %>
+  <span class="picture">
+    <%= f.file_field :picture, accept: t(".format") %>
+  </span>
+<% end %>

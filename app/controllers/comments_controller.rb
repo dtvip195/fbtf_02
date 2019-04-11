@@ -1,7 +1,13 @@
 class CommentsController < ApplicationController
-  before_action :load_review, only: [:create, :destroy]
+  before_action :load_review, only: [:create, :destroy, :new]
 
   load_and_authorize_resource
+
+  def new
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def create
     @comment = current_user.comments.build(comment_params)

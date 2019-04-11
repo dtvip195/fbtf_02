@@ -8,6 +8,7 @@ class Ability
     elsif user.user?
       can :create, Comment
       can :create, Review
+      can :update, Review, user_id: user.id
       can :destroy, Comment, user_id: user.id
       can :destroy, Review, user_id: user.id
       can [:create, :destroy], Booking

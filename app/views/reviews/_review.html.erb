@@ -9,36 +9,60 @@
           <%= time_ago_in_words(review.created_at) %>
           <%= t(".ago") %></i></small>
       </h5>
-      <% if can? :destroy, review %>
-        <div id="load_delete_review_<%= review.id %>">
-          <%= render partial: "reviews/delete_review", locals: {review_id: review, tour_id: tour_id} %>
-        </div>
-      <% end %>
-      <p><%= review.content %></p>
-      <div class="review-rating" data-score=<%= review.rating %>></div>
-      <% if user_signed_in? %>
-        <div class="like_review_<%= review.id %>">
-          <%= render partial: "likes/like", locals: {review_id: review,
-            is_like: check_like?(current_user.id, review.id)} %>
-        </div>
-      <% end %>
+
+      <!-- Content Review -->
+      <div id="review_rating_edit<% review.id %>">
+        <div class="review-rating", data-score=<%= review.rating %>></div>
+      </div>
+      <p id="load_edit_review_content<%= review.id %>"><%= review.content %></p>
+      <div id="img_review_<%= review.id %>">
+        <%= image_tag "#{review.picture}", class: "w-100" %>
+      </div>
+
+      <!-- Like Review -->
       <span id ="count_like_<%= review.id %>">
         <%= review.likes.size %>
       </span>
       <span id ="setting_like_<%= review.id %>">
         <%= like_likes(review) %>
       </span>
-      <%= image_tag "#{review.picture}", class: "w-100" %>
-      <br>
-      <br>
+      <% if user_signed_in? %>
+        <div class="like_review_<%= review.id %>">
+          <%= render partial: "likes/like", locals: {review_id: review,
+            is_like: check_like?(current_user.id, review.id)} %>
+        </div>
+      <% end %>
+
+      <!-- Edit Review -->
+      <% if can? :update, review %>
+        <%= link_to t(".edit"), edit_review_path(review), remote: true %>
+      <% end %>
+
+      <!-- Comment Form -->
+      <div id="comment_review_form_<%= review.id %>">
+        <% if user_signed_in? %>
+          <%= link_to t(".reply"), new_comment_path(review_id: review), remote: true %>
+        <% end %>
+      </div>
+
+      <!-- Delete Review -->
+      <% if can? :destroy, review %>
+        <div id="load_delete_review_<%= review.id %>">
+          <%= render partial: "reviews/delete_review",
+          locals: {review_id: review, tour_id: tour_id} %>
+        </div>
+      <% end %>
+
+      <!-- load edit review form -->
+      <div id="load_edit_review_<%= review.id %>"></div>
+
+      <!-- load comment form -->
+      <div id="load_comment_form_<%= review.id %>"></div>
+
+      <!-- Comment -->
       <div id="comment_review_<%= review.id %>">
         <%= render partial: "comments/comment", locals: {review_id: review} %>
       </div>
-      <div id="comment_review_form_<%= review.id %>">
-        <% if user_signed_in? %>
-          <%= render partial: "comments/comment_form", locals: {r_id: review} %>
-        </div>
-      <% end %>
       <br>
       <br>
     </div>

@@ -1,3 +1,2 @@
-$('#comment_review_<%=@review.id%>').html('<%= j render partial: "comments/comment", locals: {review_id: @review} %>');
-$('#delete_comment_<%@comment.id%>').html('');
-$('#load_delete_<%=@comment.id%>').html('<%= j render partial: "delete_comment", locals: {comment_id: @comment, review_id: @review} %>');
+$('#comment_review_<%= @review.id %>').html('<%= j render partial: "comments/comment", locals: {review_id: @review} %>');
+$('#load_delete_<%= @comment.id %>').html('<%= j render partial: "delete_comment", locals: {comment_id: @comment, review_id: @review} %>');

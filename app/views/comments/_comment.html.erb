@@ -1,22 +1,21 @@
 <% review_id.comments.each do |c| %>
-  <div id="delete_comment_<%=c.id%>">
-    <img src="https://png.icons8.com/ios/40/777777/user-male-circle-filled.png"
-    class="material-icons mr-3 mt-1 rounded-circle" height="48x" width="48px" />
-    <div class="media-body">
-      <h5>
-        <%= c.name %>&nbsp;&nbsp;&nbsp;
-        <small><i>
-          <%= t(".post") %>
-          <%= time_ago_in_words(c.created_at) %>
-          <%= t(".ago") %></i>
-        </small>
-      </h5>
-      <p><%= c.content %></p>
-      <% if can? :destroy, c %>
-        <div id="load_delete_<%=c.id%>">
-          <%= render partial: "comments/delete_comment", locals: {comment_id: c, review_id: review_id} %>
-        </div>
-      <% end %>
-    </div>
+  <img src="https://png.icons8.com/ios/40/777777/user-male-circle-filled.png"
+  class="material-icons mr-3 mt-1 rounded-circle" height="48x" width="48px" />
+  <div class="media-body">
+    <h5>
+      <%= c.name %>&nbsp;&nbsp;&nbsp;
+      <small><i>
+        <%= t(".post") %>
+        <%= time_ago_in_words(c.created_at) %>
+        <%= t(".ago") %></i>
+      </small>
+    </h5>
+    <p><%= c.content %></p>
+    <% if can? :destroy, c %>
+      <div id="load_delete_<%=c.id%>">
+        <%= render partial: "comments/delete_comment",
+        locals: {comment_id: c, review_id: review_id} %>
+      </div>
+    <% end %>
   </div>
 <% end %>

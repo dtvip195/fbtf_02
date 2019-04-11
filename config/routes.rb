@@ -29,10 +29,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "static_pages#show"
+    resources :users, only: %i(index destroy show)
     get "/locations", to: "locations#index"
     post "/locations", to: "locations#create"
-    resources :users, only: %i(index destroy show)
-    resources :locations, except: :show
+    resources :locations, except: %i(show index create)
     resources :travellings, except: :show
     resources :tours, except: :show
     resources :bookings, only: %i(index update)
